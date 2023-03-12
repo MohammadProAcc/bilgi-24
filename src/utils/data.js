@@ -1,0 +1,40 @@
+export const data = [
+  { id: 1, title: "Real State", imageAddress: "/images/home-pic.svg" },
+  { id: 2, title: "Vehicle", imageAddress: "/images/vehicle-pic.svg" },
+  { id: 3, title: "Spare Part", imageAddress: "/images/spare-part-pic.svg" },
+  { id: 4, title: "Second Hand", imageAddress: "/images/second-hand-pic.svg" },
+  {
+    id: 5,
+    title: "Construction",
+    imageAddress: "/images/construction-pic.svg",
+  },
+  {
+    id: 6,
+    title: "Private Lesson",
+    imageAddress: "/images/private-lesson-pic.svg",
+  },
+  { id: 7, title: "Job Posting", imageAddress: "/images/job-posting-pic.svg" },
+  { id: 8, title: "Apple", imageAddress: "/images/apple-pic.svg" },
+  { id: 9, title: "Apple", imageAddress: "/images/real-state-pic.svg" },
+  { id: 10, title: "Helper", imageAddress: "/images/helper-pic.svg" },
+  { id: 11, title: "Animals", imageAddress: "/images/animals-pic.svg" },
+  { id: 12, title: "Cosmetics", imageAddress: "/images/cosmetics-pic.svg" },
+  {
+    id: 13,
+    title: "Mother & Baby",
+    imageAddress: "/images/mother-baby-pic.svg",
+  },
+  { id: 14, title: "Music", imageAddress: "/images/music-pic.svg" },
+  { id: 15, title: "Sport", imageAddress: "/images/sport-pic.svg" },
+  { id: 16, title: "Computer", imageAddress: "/images/computer-pic.svg" },
+  {
+    id: 17,
+    title: "Food & Beverage",
+    imageAddress: "/images/food-beverage.svg",
+  },
+  {
+    id: 18,
+    title: "Mobile Phone",
+    imageAddress: "/images/mobile-phone-pic.svg",
+  },
+];
