@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { SelectCategories } from "$/ui";
+import { BoxCarousel } from "$/ui";
 
 export function HomePage() {
   return (
@@ -11,6 +12,8 @@ export function HomePage() {
           Material UI - Next.js example
         </Typography>
         <SelectCategories />
+        <BoxCarousel carouselTitle="Most Recent" />
+        <BoxCarousel carouselTitle="With Discount" />
       </Box>
     </Container>
   );
