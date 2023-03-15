@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
 import { Footer, Header } from "$/ui";
+import styled from "@emotion/styled";
 
 export function Layout(props) {
   return (

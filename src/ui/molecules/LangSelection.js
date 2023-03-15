@@ -1,41 +1,46 @@
 import { Color } from "$/design";
 import styled from "@emotion/styled";
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  NativeSelect,
-  Select,
-} from "@mui/material";
+import { FormControl, NativeSelect } from "@mui/material";
 import { useState } from "react";
 
+// FIXME: flag must be imgs
 export function LangSelection() {
   const [age, setAge] = useState();
 
   return (
     <_>
-      <select
-        defaultValue={30}
-        inputProps={{
-          name: "age",
-          id: "uncontrolled-native",
-        }}
-      >
-        <option value={10}>Ten</option>
-        <option value={20}>Twenty</option>
-        <option value={30}>Thirty</option>
-      </select>
+      <FormControl sx={{ width: "5.625rem" }}>
+        <NativeSelect
+          defaultValue="ENG"
+          inputProps={{
+            name: "lang",
+            id: "uncontrolled-native",
+          }}
+        >
+          <option value="ENG">🇺🇸 ENG</option>
+          <option value="TRK">🇹🇷 TRK</option>
+        </NativeSelect>
+      </FormControl>
     </_>
   );
 }
 
-const _ = styled(Box)`
-  display: flex;
-  align-items: center;
-
-  #uncontrolled-native {
+const _ = styled.div`
+  .MuiInputBase-root {
     color: ${Color.strokeLight};
+
+    background-image: url("/images/chevron-down.svg");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.25rem) center;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    svg {
+      display: none;
+    }
 
     option {
       color: ${Color.stroke};
