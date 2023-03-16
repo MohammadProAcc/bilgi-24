@@ -14,7 +14,7 @@ function handleClick(event) {
   event.preventDefault();
   console.info("You clicked a breadcrumb.");
 }
-export function CarouselCards() {
+export function CarouselCards(props) {
   const CustomLink = styled(Link)({
     fontSize: "10px",
     fontWeight: 500,
@@ -57,7 +57,7 @@ export function CarouselCards() {
           width={114}
           height={114}
           alt="box-image"
-          src="/images/box-pic1.png"
+          src={props.srcImage}
           style={{ borderRadius: "5px" }}
         />
       </Box>
@@ -67,16 +67,37 @@ export function CarouselCards() {
         >
           Apartment
         </Typography>
-        <Breadcrumbs separator={<NavigateNextIcon fontSize="10ox" />}>
+        <Breadcrumbs
+          sx={{
+            "& .MuiBreadcrumbs-separator": {
+              marginLeft: "0",
+              marginRight: "0",
+            },
+          }}
+          separator={<NavigateNextIcon fontSize="10px" />}
+        >
           {breadcrumbs}
         </Breadcrumbs>
         <Grid container direction="column" gap="2px">
           <BoxTypography text="M2 (groos)" number="105" />
           <BoxTypography text="M2 (net)" number="95" />
         </Grid>
-        <Grid container direction="row" alignItems="center" justifyContent="space-between">
-          <Typography sx={{color:"#1E1E1E",fontSize:"10px",fontWeight:500}}>3 Rooms</Typography>
-          <Typography sx={{color:"#1E1E1E",fontSize:"12px",fontWeight:500}}>35,000$</Typography>
+        <Grid
+          container
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Typography
+            sx={{ color: "#1E1E1E", fontSize: "10px", fontWeight: 500 }}
+          >
+            3 Rooms
+          </Typography>
+          <Typography
+            sx={{ color: "#1E1E1E", fontSize: "12px", fontWeight: 500 }}
+          >
+            35,000$
+          </Typography>
         </Grid>
       </Grid>
     </Grid>

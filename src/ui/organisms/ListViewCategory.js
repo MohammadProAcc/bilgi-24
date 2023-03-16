@@ -1,7 +1,15 @@
 import { Button, Grid, Typography } from "@mui/material";
-import { CarouselCards, CustomSelect, ListViewTabs, TabPanel } from "$/ui/organisms/molecules";
+import {
+  CarouselCards,
+  CustomSelect,
+  CategoryListViewCard,
+  ListViewTabs,
+  TabPanel,
+  CategoryGridView,
+} from "$/ui/organisms/molecules";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useState } from "react";
+import { imageCard } from "$/utils";
 
 export function ListViewCategory() {
   const [valueTab, setValueTab] = useState(0);
@@ -40,32 +48,23 @@ export function ListViewCategory() {
         >
           Istanbul
         </Button>
-        <ListViewTabs value={valueTab} onChange={handleChangeTab}/>
-       
+        <ListViewTabs value={valueTab} onChange={handleChangeTab} />
       </Grid>
       <Grid id="content" container direction="row">
-         <TabPanel value={valueTab} index={0}>
-          <Grid container gap="32px" flexWrap="wrap" padding="0 113px 0 40px" >
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
-          <CarouselCards />
+        <TabPanel value={valueTab} index={0}>
+          <Grid container gap="32px" flexWrap="wrap" padding="0 113px 0 40px">
+            {/* <Cate goryGridView/> */}
+            {imageCard.map((item) => (
+              <CarouselCards key={item.id} srcImage={item.imageAddress} />
+            ))}
           </Grid>
         </TabPanel>
         <TabPanel value={valueTab} index={1}>
-          <Grid container flexWrap="wrap" justifyContent="space-between">
-            <Typography variant="h5">List</Typography>
+          <Grid container gap="32px" flexWrap="wrap" padding="0 113px 0 40px">
+            <CategoryListViewCard />
+            <CategoryListViewCard />
+            <CategoryListViewCard />
+            <CategoryListViewCard />
           </Grid>
         </TabPanel>
       </Grid>

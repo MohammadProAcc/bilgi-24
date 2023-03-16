@@ -50,10 +50,16 @@ export function SideBar() {
           container
           direction="column"
           gap="40px"
-          padding="107px 0 0 113px"
+          padding="107px 0 0 0"
           xl
         >
-          <Grid id="checkbox" container direction="column" gap="10px">
+          <Grid
+            id="checkbox"
+            container
+            direction="column"
+            gap="10px"
+            width="fit-content"
+          >
             <Typography
               sx={{ fontSize: "16px", fontWeight: 500, color: "#1E1E1E" }}
             >
@@ -102,7 +108,13 @@ export function SideBar() {
             </Typography>
             <CustomSelect />
           </Grid>
-          <Grid id="price" container direction="column" gap="18px">
+          <Grid
+            id="price"
+            container
+            direction="column"
+            gap="18px"
+            width="fit-content"
+          >
             <FormControl variant="standard">
               <Label shrink>From</Label>
               <Input placeholder="25000$" id="price-from" />
@@ -128,7 +140,13 @@ export function SideBar() {
             </Typography>
             <CustomSelect />
           </Grid>
-          <Grid id="metrage" container direction="column" gap="18px">
+          <Grid
+            id="metrage"
+            container
+            direction="column"
+            gap="18px"
+            width="fit-content"
+          >
             <FormControl variant="standard">
               <Label shrink>From</Label>
               <Input placeholder="125" id="metrage-from" />
@@ -139,7 +157,7 @@ export function SideBar() {
             </FormControl>
           </Grid>
         </Grid>
-        <Divider sx={{ borderWidth: "1px",marginTop:"107px" }} xl/>
+        <Divider sx={{ borderWidth: "1px", marginTop: "107px" }} xl />
       </Grid>
     </>
   );
