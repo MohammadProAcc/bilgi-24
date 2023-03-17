@@ -8,7 +8,7 @@ export function CustomSelect() {
     setAge(event.target.value);
   }
   return (
-    <Box>
+    <Box >
       <FormControl>
         <Select
           sx={{ height: "30px" }}
