@@ -4,3 +4,4 @@ export * from "./CustomSelect";
 export * from "./atoms";
 export * from "./HeaderSearchExtension"
 export * from "./PostTypeCard"
+export * from "./InputGroup"

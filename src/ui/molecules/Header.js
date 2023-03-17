@@ -10,7 +10,10 @@ import {
   HeaderExtension,
   Justifier,
   LangSelection,
+  LoginRegisterModal,
   SearchInput,
+  SVGEllipse1,
+  SVGEllipse2,
   SVGLogo,
   SVGLogout,
   SVGPlus,
@@ -19,10 +22,10 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import { useState } from "react";
-import { SVGEllipse1, SVGEllipse2 } from "$/ui";
 
 export function Header(props) {
   const [mode, setMode] = useState(props.headerMode ?? "initial"); // initial - search - addPost
+  const [showLoginRegisterModal, setShowLoginRegisterModal] = useState(false);
   const activeExtension = mode === "search" || mode === "addPost";
 
   return (
@@ -60,6 +63,7 @@ export function Header(props) {
                     border: `3px solid ${Color.sub}`,
                   },
                 })}
+                onClick={() => setShowLoginRegisterModal(true)}
               >
                 <SVGLogout />
                 Login / Register
@@ -79,6 +83,10 @@ export function Header(props) {
           </Flex>
         </div>
         <HeaderExtension active={activeExtension} headerMode={mode} />
+        <LoginRegisterModal
+          open={showLoginRegisterModal}
+          handleClose={() => setShowLoginRegisterModal(false)}
+        />
         {activeExtension && (
           <>
             <SVGEllipse1

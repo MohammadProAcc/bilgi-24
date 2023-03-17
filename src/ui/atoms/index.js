@@ -6,6 +6,10 @@ export * from "./SVGLogout";
 export * from "./Justifier";
 export * from "./SVGEllipse1";
 export * from "./SVGEllipse2";
-export * from "./SVGSearch"
-export * from "./SVGSearchDark"
-export * from "./SVGFilter"
+export * from "./SVGSearch";
+export * from "./SVGSearchDark";
+export * from "./SVGFilter";
+export * from "./SVGClose";
+export * from "./SVGEmail";
+export * from "./SVGLock";
+export * from "./CheckboxInput";
