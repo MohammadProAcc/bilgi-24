@@ -1,3 +1,4 @@
+import { Zindex } from "$/design";
 import { Grid, Typography } from "@mui/material";
 import Image from "next/image";
 
@@ -15,6 +16,7 @@ export function CategoryCard(props) {
         alignItems: "center",
         justifyContent: "center",
         gap: "20px",
+        zIndex: Zindex.categoryCard,
         "&:hover": {
           boxShadow: " 5px 5px 46px rgba(0, 0, 0, 0.2)",
           cursor: "pointer",

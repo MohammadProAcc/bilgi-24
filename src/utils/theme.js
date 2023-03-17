@@ -14,7 +14,12 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: "#0A4556",
-      light: "#F5B61A",
+    },
+    sub: {
+      main: "#F5B61A",
+    },
+    plain: {
+      main: "#fff"
     },
     error: {
       main: red.A400,
