@@ -17,9 +17,11 @@ export function SearchInput() {
 }
 
 const _ = styled(Box)`
+  width: 32.875rem;
   height: 3rem;
 
   .MuiFormControl-root {
+    width: 100%;
     height: 3rem;
   }
 

@@ -1,6 +1,7 @@
 import { Color } from "$/design";
 import styled from "@emotion/styled";
 import { Button } from "@mui/material";
+import Link from "next/link";
 
 export function PostTypeCard(props) {
   return (
@@ -10,18 +11,20 @@ export function PostTypeCard(props) {
       <p className="description">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
       </p>
-      <Button
-        style={{
-          width: "11.375rem",
-          height: "2.5rem",
-          color: Color.strokeDark,
-          borderWidth: "0.1875rem"
-        }}
-        color={props.color}
-        variant={props.variant}
-      >
-        Add Post
-      </Button>
+      <Link href="/create-post">
+        <Button
+          style={{
+            width: "11.375rem",
+            height: "2.5rem",
+            color: Color.strokeDark,
+            borderWidth: "0.1875rem",
+          }}
+          color={props.color}
+          variant={props.variant}
+        >
+          Add Post
+        </Button>
+      </Link>
     </_>
   );
 }

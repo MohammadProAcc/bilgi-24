@@ -1,14 +1,9 @@
 import { Color } from "$/design";
 import styled from "@emotion/styled";
-import { useEffect } from "react";
 import { HeaderSearchExtension } from "./molecules";
 import { HeaderCreatePostExtension } from "./molecules/HeaderCreatePostExtension";
 
 export function HeaderExtension(props) {
-  useEffect(() => {
-    console.log(props.headerMode);
-  }, [props.headerMode]);
-
   return (
     <_ data-active={!!props.active}>
       <h1>
@@ -26,7 +21,7 @@ export function HeaderExtension(props) {
       {props.headerMode === "search" ? (
         <HeaderSearchExtension />
       ) : (
-        props.headerMode === "addPost" && (<HeaderCreatePostExtension />)
+        props.headerMode === "addPost" && <HeaderCreatePostExtension />
       )}
     </_>
   );

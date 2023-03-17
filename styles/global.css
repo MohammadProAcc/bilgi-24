@@ -13,3 +13,7 @@ a {
   padding: 0;
   text-transform: none !important;
 }
+
+li {
+  list-style: none;
+}

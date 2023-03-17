@@ -5,4 +5,5 @@ export const Color = {
   strokeDark: "#1E1E1E",
   strokeLight: "#fff",
   cardBackground: "#fff",
+  deactive: "#D9D9D9"
 };
