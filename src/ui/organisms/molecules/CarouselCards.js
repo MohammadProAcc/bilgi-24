@@ -14,7 +14,8 @@ function handleClick(event) {
   event.preventDefault();
   console.info("You clicked a breadcrumb.");
 }
-export function CarouselCards() {
+export function CarouselCards(props) {
+  let isShop = props.isShop;
   const CustomLink = styled(Link)({
     fontSize: "10px",
     fontWeight: 500,
@@ -52,31 +53,68 @@ export function CarouselCards() {
         padding: "12px",
       }}
     >
-      <Box xl>
+      <Box position="relative" xl lg md>
         <Image
           width={114}
           height={114}
           alt="box-image"
-          src="/images/box-pic1.png"
+          src={props.srcImage}
           style={{ borderRadius: "5px" }}
         />
+        {isShop === "true" ? (
+          <Image
+            width={140}
+            height={120}
+            alt="box-image"
+            src="/images/shop-label.svg"
+            style={{
+              borderRadius: "5px",
+              position: "absolute",
+              top: "0",
+              right: "-10px",
+            }}
+          />
+        ) : (
+          <></>
+        )}
       </Box>
-      <Grid container direction="column" gap="4px" xl>
+      <Grid container direction="column" gap="4px" xl lg md>
         <Typography
           sx={{ fontSize: "14px", fontWeight: 500, color: "#1E1E1E" }}
         >
           Apartment
         </Typography>
-        <Breadcrumbs separator={<NavigateNextIcon fontSize="10ox" />}>
+        <Breadcrumbs
+          sx={{
+            "& .MuiBreadcrumbs-separator": {
+              marginLeft: "0",
+              marginRight: "0",
+            },
+          }}
+          separator={<NavigateNextIcon fontSize="10px" />}
+        >
           {breadcrumbs}
         </Breadcrumbs>
         <Grid container direction="column" gap="2px">
           <BoxTypography text="M2 (groos)" number="105" />
           <BoxTypography text="M2 (net)" number="95" />
         </Grid>
-        <Grid container direction="row" alignItems="center" justifyContent="space-between">
-          <Typography sx={{color:"#1E1E1E",fontSize:"10px",fontWeight:500}}>3 Rooms</Typography>
-          <Typography sx={{color:"#1E1E1E",fontSize:"12px",fontWeight:500}}>35,000$</Typography>
+        <Grid
+          container
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Typography
+            sx={{ color: "#1E1E1E", fontSize: "10px", fontWeight: 500 }}
+          >
+            3 Rooms
+          </Typography>
+          <Typography
+            sx={{ color: "#1E1E1E", fontSize: "12px", fontWeight: 500 }}
+          >
+            35,000$
+          </Typography>
         </Grid>
       </Grid>
     </Grid>

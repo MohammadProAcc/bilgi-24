@@ -5,7 +5,7 @@ import { ListViewCategory } from "$/ui/organisms";
 export function CategoryPage() {
   return (
     <Container maxWidth="lx">
-      <Grid container direction="row" sx={{ my: 4,justifyContent:"flex-end" }}>
+      <Grid container direction="row" sx={{ my: 4,justifyContent:"center" }}>
         <SideBar/>
         <ListViewCategory/>
       </Grid>

@@ -21,6 +21,10 @@ export const theme = createTheme({
     plain: {
       main: "#fff"
     },
+    info:{
+      main:'#F5B61A'
+    }
+    ,
     error: {
       main: red.A400,
     },

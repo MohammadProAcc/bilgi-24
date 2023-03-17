@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Box, Typography } from "@mui/material";
 
-export const TabPanel = (props) => {
+export function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
@@ -14,13 +14,13 @@ export const TabPanel = (props) => {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 2 }}>
+        <Box sx={{ padding:"30px 12px" }}>
           <Box>{children}</Box>
         </Box>
       )}
     </div>
   );
-};
+}
 
 TabPanel.propTypes = {
   children: PropTypes.node,
