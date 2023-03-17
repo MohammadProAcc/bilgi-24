@@ -15,6 +15,7 @@ function handleClick(event) {
   console.info("You clicked a breadcrumb.");
 }
 export function CarouselCards(props) {
+  let isShop = props.isShop;
   const CustomLink = styled(Link)({
     fontSize: "10px",
     fontWeight: 500,
@@ -52,7 +53,7 @@ export function CarouselCards(props) {
         padding: "12px",
       }}
     >
-      <Box xl>
+      <Box position="relative" xl lg md>
         <Image
           width={114}
           height={114}
@@ -60,8 +61,24 @@ export function CarouselCards(props) {
           src={props.srcImage}
           style={{ borderRadius: "5px" }}
         />
+        {isShop === "true" ? (
+          <Image
+            width={140}
+            height={120}
+            alt="box-image"
+            src="/images/shop-label.svg"
+            style={{
+              borderRadius: "5px",
+              position: "absolute",
+              top: "0",
+              right: "-10px",
+            }}
+          />
+        ) : (
+          <></>
+        )}
       </Box>
-      <Grid container direction="column" gap="4px" xl>
+      <Grid container direction="column" gap="4px" xl lg md>
         <Typography
           sx={{ fontSize: "14px", fontWeight: 500, color: "#1E1E1E" }}
         >

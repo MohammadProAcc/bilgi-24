@@ -1,77 +1,65 @@
-import { useState } from "react";
-import { Box, Grid, styled, Tab, Tabs, Typography } from "@mui/material";
-import { TabPanel } from "./atoms";
-import {BsList} from "react-icons/bs";
-import {GrAppsRounded} from "react-icons/gr";
+import { Box, styled, Tab, Tabs } from "@mui/material";
+import { BsList } from "react-icons/bs";
+import { GrAppsRounded } from "react-icons/gr";
 
 export function ListViewTabs(props) {
   const CustomTab = styled(Tab)({
     marginRight: "10px",
-
+    padding: "8px",
+    minWidth: "30px",
+    minHeight: "30px",
     "&:hover": {
-      backgroundColor: "#00A693",
+      backgroundColor: "#F5B61A",
       borderRadius: "5px",
     },
     "&.Mui-selected": {
-      backgroundColor: "#00A693",
+      backgroundColor: "#F5B61A",
       borderRadius: "5px",
       border: "0",
     },
     "&.Mui-focusVisible": {
-      border: "0",
+      // border: "10px",
     },
   });
+  function a11yProps(index) {
+    return {
+      id: `full-width-tab-${index}`,
+      "aria-controls": `full-width-tabpanel-${index}`,
+    };
+  }
 
-  // const [valueTab, setValueTab] = useState(0);
-  // const handleChangeTab = (newValue) => {
-  //   setValueTab(newValue);
-  // };
   return (
-    <Tabs
-    value={props.value}
-    onChange={props.onChange}
-    centered
-    indicatorColor={""}
-  >
-    <CustomTab
-      icon={
-        <GrAppsRounded
-          sx={{
-            color: "black",
-            width: "100px",
-            height: "100px",
-          }}
-        />
-      }
-    />
-    <CustomTab
-      icon={
-        <BsList
-          sx={{ color: "black", width: "100px", height: "100px" }}
-        />
-      }
-    />
-  </Tabs>
-    // <Grid
-    //   container
-    //   direction="column"
-    //   gap="40px"
-    // >
-    //   <Grid>
-    //     <Box sx={{}}>
-        
-    //     </Box>
-    //   </Grid>
-    //   {/* <TabPanel value={valueTab} index={0}>
-    //     <Grid container>
-    //       <Typography variant="h5">Grid</Typography>
-    //     </Grid>
-    //   </TabPanel>
-    //   <TabPanel value={valueTab} index={1}>
-    //     <Grid container flexWrap="wrap" justifyContent="space-between">
-    //       <Typography variant="h5">List</Typography>
-    //     </Grid>
-    //   </TabPanel> */}
-    // </Grid>
+    <Box sx={{ bgcolor: "background.paper" }}>
+      <Box>
+        <Tabs
+          value={props.value}
+          onChange={props.onChange}
+          textColor="inherit"
+          variant="fullWidth"
+          indicatorColor={""}
+          sx={{ "& .MuiTabs-indicator": { backgroundColor: "none" } }}
+        >
+          <CustomTab
+            icon={
+              <GrAppsRounded
+                style={{ width: "20px", height: "20px", color: "#1E1E1E" }}
+              />
+            }
+            {...a11yProps(0)}
+          />
+          <CustomTab
+            icon={
+              <BsList
+                style={{
+                  width: "24px",
+                  height: "22px",
+                }}
+              />
+            }
+            {...a11yProps(1)}
+          />
+        </Tabs>
+      </Box>
+    </Box>
   );
 }

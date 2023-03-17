@@ -22,19 +22,19 @@ export function BoxCarousel(props) {
           className="mySwiper"
         >
           <SwiperSlide>
-            <CarouselCards />
+            <CarouselCards srcImage="/images/list-view-pic1.png" />
           </SwiperSlide>
           <SwiperSlide>
-            <CarouselCards />
+            <CarouselCards srcImage="/images/list-view-pic1.png"/>
           </SwiperSlide>
           <SwiperSlide>
-            <CarouselCards />
+            <CarouselCards srcImage="/images/list-view-pic1.png" />
           </SwiperSlide>
           <SwiperSlide>
-            <CarouselCards />
+            <CarouselCards srcImage="/images/list-view-pic1.png" />
           </SwiperSlide>
           <SwiperSlide>
-            <CarouselCards />
+            <CarouselCards srcImage="/images/list-view-pic1.png" />
           </SwiperSlide>
         </Swiper>
       </Box>

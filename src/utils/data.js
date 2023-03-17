@@ -40,19 +40,42 @@ export const data = [
 ];
 
 export const imageCard = [
-  { id: "1", imageAddress: "/images/card-pic1.png" },
-  { id: "2", imageAddress: "/images/card-pic2.png" },
-  { id: "3", imageAddress: "/images/card-pic3.png" },
-  { id: "4", imageAddress: "/images/card-pic4.png" },
-  { id: "5", imageAddress: "/images/card-pic5.png" },
-  { id: "6", imageAddress: "/images/card-pic6.png" },
-  { id: "7", imageAddress: "/images/card-pic7.png" },
-  { id: "8", imageAddress: "/images/card-pic8.png" },
-  { id: "9", imageAddress: "/images/card-pic9.png" },
-  { id: "10", imageAddress: "/images/card-pic10.png" },
-  { id: "11", imageAddress: "/images/card-pic11.png" },
-  { id: "12", imageAddress: "/images/card-pic12.png" },
-  { id: "13", imageAddress: "/images/card-pic13.png" },
-  { id: "14", imageAddress: "/images/card-pic14.png" },
-  { id: "15", imageAddress: "/images/card-pic15.png" },
+  { id: "1", imageAddress: "/images/card-pic1.png", isShop: "false" },
+  { id: "2", imageAddress: "/images/card-pic2.png", isShop: "false" },
+  { id: "3", imageAddress: "/images/card-pic3.png", isShop: "false" },
+  { id: "4", imageAddress: "/images/card-pic4.png", isShop: "false" },
+  { id: "5", imageAddress: "/images/card-pic5.png", isShop: "true" },
+  { id: "6", imageAddress: "/images/card-pic6.png", isShop: "false" },
+  { id: "7", imageAddress: "/images/card-pic7.png", isShop: "true" },
+  { id: "8", imageAddress: "/images/card-pic8.png", isShop: "false" },
+  { id: "9", imageAddress: "/images/card-pic9.png", isShop: "false" },
+  { id: "10", imageAddress: "/images/card-pic10.png", isShop: "false" },
+  { id: "11", imageAddress: "/images/card-pic11.png", isShop: "false" },
+  { id: "12", imageAddress: "/images/card-pic12.png", isShop: "true" },
+  { id: "13", imageAddress: "/images/card-pic13.png", isShop: "true" },
+  { id: "14", imageAddress: "/images/card-pic14.png", isShop: "false" },
+  { id: "15", imageAddress: "/images/card-pic15.png", isShop: "false" },
+];
+
+export const imageListView = [
+  {
+    id: "1",
+    imageLarge: "/images/list-view-pic1.png",
+    imageSmall: "/images/list-view-pic2.jpg",
+  },
+  {
+    id: "2",
+    imageLarge: "/images/list-view-pic3.png",
+    imageSmall: "/images/list-view-pic4.jpeg",
+  },
+  {
+    id: "3",
+    imageLarge: "/images/list-view-pic5.png",
+    imageSmall: "/images/list-view-pic6.jpg",
+  },
+  {
+    id: "4",
+    imageLarge: "/images/list-view-pic7.png",
+    imageSmall: "/images/list-view-pic8.jpg",
+  },
 ];

@@ -15,7 +15,7 @@ function handleClick(event) {
   event.preventDefault();
   console.info("You clicked a breadcrumb.");
 }
-export function CategoryListViewCard() {
+export function CategoryListViewCard(props) {
   const CustomLink = styled(Link)({
     fontSize: "10px",
     fontWeight: 500,
@@ -106,7 +106,7 @@ export function CategoryListViewCard() {
               </Grid>
             </Grid>
           </Grid>
-          <Box xl>
+          <Box width="28%">
             <BoxTypography text="M2 (groos)" number="105" />
             <BoxTypography text="M2 (net)" number="95" />
           </Box>
@@ -137,14 +137,14 @@ export function CategoryListViewCard() {
           width={148}
           height={148}
           alt="picture"
-          src="/images/listview-pic1.png"
+          src={props.srcImageLarge}
           style={{ borderRadius: "5px", position: "absolute" }}
         />
         <Image
           width={126}
           height={126}
           alt="picture"
-          src="/images/listview-pic2.png"
+          src={props.srcImageSmall}
           style={{
             filter: "drop-shadow(5px 0px 35px rgba(0, 0, 0, 0.3))",
             borderRadius: "5px",

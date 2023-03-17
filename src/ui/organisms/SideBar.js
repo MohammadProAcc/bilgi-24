@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import { CustomSelect } from "./molecules";
 
+const namesPrice = ["$", "$"];
+const names = ["gross", "gross"];
 export function SideBar() {
   const CustomFormControlLabel = styled(FormControlLabel)({
     fontSize: "12px",
@@ -44,7 +46,7 @@ export function SideBar() {
   }));
   return (
     <>
-      <Grid id="main" container direction="row" xl={2.5}>
+      <Grid id="main" container direction="row" xl={2} lg={2.5} md={3}>
         <Grid
           id="content"
           container
@@ -106,7 +108,14 @@ export function SideBar() {
             >
               Price
             </Typography>
-            <CustomSelect />
+            <CustomSelect
+              name={namesPrice}
+              sxSelect={{
+                ".MuiOutlinedInput-notchedOutline": {
+                  borderColor: "none",
+                },
+              }}
+            />
           </Grid>
           <Grid
             id="price"
@@ -138,7 +147,14 @@ export function SideBar() {
             >
               Metrage
             </Typography>
-            <CustomSelect />
+            <CustomSelect
+              name={names}
+              sxSelect={{
+                ".MuiOutlinedInput-notchedOutline": {
+                  borderColor: "none",
+                },
+              }}
+            />
           </Grid>
           <Grid
             id="metrage"
