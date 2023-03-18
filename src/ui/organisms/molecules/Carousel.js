@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs ,Pagination} from "swiper";
 import { Box } from "@mui/material";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export function Carousel(props) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
