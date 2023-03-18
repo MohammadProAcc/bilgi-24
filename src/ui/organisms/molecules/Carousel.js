@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs, Pagination } from "swiper";
 import { Box } from "@mui/material";
@@ -45,12 +45,6 @@ const CAROUSEL_FILES_MOCK = [
 export function Carousel(props) {
   const [swiper, setSwiper] = useState(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const Image = styled.img`
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-  `;
 
   return (
     <Box
@@ -70,6 +64,9 @@ export function Carousel(props) {
               top: "0",
               left: "0",
               background: "#00000080",
+              "&:hover": {
+                cursor: "pointer",
+              },
             },
           },
           "& svg": {
@@ -141,8 +138,12 @@ export function Carousel(props) {
       >
         {CAROUSEL_FILES_MOCK.map((image, index) => (
           <SwiperSlide key={image.file} className="thumb-slide">
-            {swiper?.activeIndex !== index && <div className="overlay" />}
-            <Image src={image.file} />
+            {swiper?.activeIndex !== index && (
+              <div className="overlay" onClick={() => swiper?.slideTo(index)} />
+            )}
+
+            <Image src={image.file} onClick={() => swiper?.slideTo(index)} />
+
             <SVGCloseSub />
           </SwiperSlide>
         ))}
@@ -150,3 +151,14 @@ export function Carousel(props) {
     </Box>
   );
 }
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
