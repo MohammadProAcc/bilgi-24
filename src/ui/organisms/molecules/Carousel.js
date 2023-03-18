@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs ,Pagination} from "swiper";
 import { Box } from "@mui/material";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export function Carousel(props) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -58,9 +58,6 @@ export function Carousel(props) {
           <Image src="https://swiperjs.com/demos/images/nature-8.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
           <Image src="https://swiperjs.com/demos/images/nature-10.jpg" />
         </SwiperSlide>
       </Swiper>
@@ -96,9 +93,6 @@ export function Carousel(props) {
         </SwiperSlide>
         <SwiperSlide>
           <Image src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src="https://swiperjs.com/demos/images/nature-9.jpg" />
         </SwiperSlide>
         <SwiperSlide>
           <Image src="https://swiperjs.com/demos/images/nature-10.jpg" />

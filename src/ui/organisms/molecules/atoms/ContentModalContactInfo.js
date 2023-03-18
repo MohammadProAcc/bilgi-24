@@ -16,6 +16,7 @@ export function ContentModalContactInfo(props) {
           height={props.heightImg}
           alt="icon"
           src={props.srcIcon}
+          style={{borderRadius:"5px"}}
         />
         <Text>{props.title}</Text>
       </Grid>

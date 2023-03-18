@@ -48,7 +48,6 @@ export function BoxCarousel(props) {
       >
         <Swiper
           slidesPerView={3.5}
-          // centeredSlides={true}
           spaceBetween={10}
           grabCursor={true}
           className="mySwiper"

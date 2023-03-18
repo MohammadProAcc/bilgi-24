@@ -2,6 +2,7 @@ import { imageListView } from "$/utils";
 import {
   Box,
   Button,
+  Divider,
   Grid,
   styled,
   Tab,
@@ -14,6 +15,11 @@ import SwipeableViews from "react-swipeable-views";
 import {
   CartBox,
   CategoryListViewCard,
+  ChatNavbar,
+  ContactBox,
+  CustomTextfieldChat,
+  MessageBoxBlue,
+  MessageBoxWhite,
   TabPanel,
 } from "./molecules";
 
@@ -38,9 +44,9 @@ export function Dashboard() {
         container
         direction="column"
         sx={{ height: "fit-content" }}
-        xl={4}
-        lg={4}
-        md={4}
+        xl={2.5}
+        lg={2.5}
+        md={2.5}
       >
         <Typography
           sx={{
@@ -87,7 +93,7 @@ export function Dashboard() {
           </Tabs>
         </Box>
       </Grid>
-      <Grid container xl={8} lg={8} md={8}>
+      <Grid container xl={9.5} lg={9.5} md={9.5}>
         <SwipeableViews
           axis={theme.direction === "rtl" ? "x-reverse" : "x"}
           index={value}
@@ -108,9 +114,50 @@ export function Dashboard() {
             </Grid>
           </TabPanel>
           <TabPanel value={value} index={2}>
-            <Grid container direction="row">
-              <Grid container></Grid>
-              <Grid container></Grid>
+            <Grid container direction="row" gap="60px">
+              <Grid container direction="column" gap="12px" xl lg md>
+                <ContactBox />
+                <ContactBox />
+                <ContactBox />
+                <ContactBox />
+                <ContactBox />
+                <ContactBox />
+               
+              </Grid>
+              <Grid container xl lg md>
+                <Box
+                  width="582px"
+                  height="auto"
+                  sx={{
+                    border: "4px solid rgba(30,30,30,0.1)",
+                    borderRadius: "10px",
+                    padding: "14px",
+                  }}
+                >
+                  <Grid container gap="22px">
+                    <ChatNavbar />
+                    <Grid container justifyContent="flex-end">
+                      <MessageBoxBlue />
+                    </Grid>
+                    <Grid container justifyContent="flex-start">
+                      <MessageBoxWhite />
+                    </Grid>
+                    <Grid container justifyContent="flex-end">
+                      <MessageBoxBlue />
+                    </Grid>
+                    <Grid container justifyContent="flex-start">
+                      <MessageBoxWhite />
+                    </Grid>
+                    <Grid container justifyContent="flex-end">
+                      <MessageBoxBlue />
+                    </Grid>
+                    <Grid container justifyContent="flex-start">
+                      <MessageBoxWhite />
+                    </Grid>
+                    <CustomTextfieldChat />
+                  </Grid>
+                </Box>
+              </Grid>
             </Grid>
           </TabPanel>
           <TabPanel value={value} index={3}>
