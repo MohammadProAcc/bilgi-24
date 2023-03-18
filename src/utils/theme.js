@@ -24,6 +24,9 @@ export const theme = createTheme({
     deactive: {
       main: "rgba(1,31,40, 50%)",
     },
+    delete:{ 
+      main: "#810202"
+    },
     info: {
       main: "#F5B61A",
     },

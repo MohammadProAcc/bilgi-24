@@ -32,7 +32,7 @@ export function CartBox(props) {
       <Text>Rea State / Residential / Rent</Text>
       <Text>15,000$</Text>
       <IconButton>
-        <DeleteOutlineOutlinedIcon />
+        <DeleteOutlineOutlinedIcon color="delete" />
       </IconButton>
     </Grid>
   );

@@ -17,6 +17,7 @@
     "@mui/styles": "^5.11.13",
     "leaflet": "^1.9.3",
     "next": "13.2.4",
+    "numeral": "^2.0.6",
     "pigeon-maps": "^0.21.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
