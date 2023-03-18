@@ -11,7 +11,6 @@ import {
   Justifier,
   Layout,
   SVGEllipse3,
-  SVGEllipse4,
 } from "$/ui";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -24,7 +23,9 @@ export function CreatePostPage() {
     <Layout>
       <CreatePostContext.Provider value={{ step, setStep }}>
         <_>
-          <Justifier style={{ position: "relative", zIndex: Zindex.notEllipse }}>
+          <Justifier
+            style={{ position: "relative", zIndex: Zindex.notEllipse }}
+          >
             <h1>Create Post</h1>
             <p className="description">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

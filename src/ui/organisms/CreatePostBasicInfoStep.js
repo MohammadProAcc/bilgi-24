@@ -49,7 +49,7 @@ export function CreatePostBasicInfoStep() {
 }
 
 const _ = styled.div`
-  max-width: 62.5rem;
+  max-width: 63.125rem;
   margin: 0 auto;
   width: 100%;
   .inner {
@@ -69,5 +69,12 @@ const _ = styled.div`
 
   .divider {
     padding: 2.5rem 0;
+  }
+
+  .MuiFormControl-root {
+    width: 300px;
+    .MuiSelect-select {
+      width: 100%;
+    }
   }
 `;
