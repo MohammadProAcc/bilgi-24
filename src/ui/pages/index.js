@@ -4,3 +4,4 @@ export * from "./CreatePostPage";
 export * from "./HomePage";
 export * from "./PostSinglePage";
 export * from "./ProfilePage";
+export * from "./PreviewPostPage";

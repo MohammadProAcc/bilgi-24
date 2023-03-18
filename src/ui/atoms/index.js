@@ -22,3 +22,4 @@ export * from "./SVGSearchDark";
 export * from "./TitleBar";
 export * from "./UploadInput";
 export * from "./SVGPlay";
+export * from "./SVGCloseSub";

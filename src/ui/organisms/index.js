@@ -19,3 +19,5 @@ export * from "./SideBar";
 export * from "./PostSingle";
 export * from "./Dashboard";
 export * from "./molecules";
+export * from "./PreviewPost";
+export * from "./PreviewPostButtons"
