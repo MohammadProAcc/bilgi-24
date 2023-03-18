@@ -58,9 +58,6 @@ export function Carousel(props) {
           <Image src="https://swiperjs.com/demos/images/nature-8.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
           <Image src="https://swiperjs.com/demos/images/nature-10.jpg" />
         </SwiperSlide>
       </Swiper>
@@ -96,9 +93,6 @@ export function Carousel(props) {
         </SwiperSlide>
         <SwiperSlide>
           <Image src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src="https://swiperjs.com/demos/images/nature-9.jpg" />
         </SwiperSlide>
         <SwiperSlide>
           <Image src="https://swiperjs.com/demos/images/nature-10.jpg" />
