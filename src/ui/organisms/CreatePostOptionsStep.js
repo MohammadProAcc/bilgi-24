@@ -1,6 +1,5 @@
-import styled from "@emotion/styled";
 import { CheckboxInput, SegmentedInput } from "$/ui";
-import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 export function CreatePostOptionsStep() {
   return (

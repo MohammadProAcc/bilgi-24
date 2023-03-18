@@ -17,7 +17,7 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 
 export function CreatePostPage() {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(4);
 
   return (
     <Layout>
