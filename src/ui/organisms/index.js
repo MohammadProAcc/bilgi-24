@@ -17,4 +17,5 @@ export * from "./CreatePostDescriptionStep";
 export * from "./ListViewCategory";
 export * from "./SideBar";
 export * from "./PostSingle";
+export * from "./Dashboard";
 export * from "./molecules";

@@ -12,7 +12,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import ShareIcon from "@mui/icons-material/Share";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import {
-  BoxTypography2,
+  BoxTypography,
   Carousel,
   Modal,
   TabsBoxPostSingle,
@@ -146,7 +146,7 @@ export function PostSingle() {
                 width: { xl: "124px", lg: "124px", md: "100px" },
                 height: { xl: "36px", lg: "36px", md: "26px" },
                 textTransform: "none",
-                fontSize: { xl: "16px", lg: "16px", md: "12px" },
+                fontSize: { xl: "14px", lg: "14px", md: "12px" },
                 fontWeight: 500,
                 color: "#011F28",
                 backgroundColor: "#F5B61A",
@@ -199,16 +199,16 @@ export function PostSingle() {
           </Box>
           <Grid container direction="row">
             <Grid container direction="column" padding="10px" gap="25px" xl>
-              <BoxTypography2 text="M2 (groos)" number="105" />
-              <BoxTypography2 text="M2 (net)" number="95" />
-              <BoxTypography2 text="Number Of Rooms" number="6" />
-              <BoxTypography2 text="Building Age" number="15" />
+              <BoxTypography text="M2 (groos)" number="105" />
+              <BoxTypography text="M2 (net)" number="95" />
+              <BoxTypography text="Number Of Rooms" number="6" />
+              <BoxTypography text="Building Age" number="15" />
             </Grid>
             <Grid container direction="column" padding="10px" gap="25px" xl>
-              <BoxTypography2 text="Number Of Floors" number="7" />
-              <BoxTypography2 text="Floor Location" number="4" />
-              <BoxTypography2 text="Number Of Bathrooms" number="3" />
-              <BoxTypography2 text="Heating" number="Natural Gas" />
+              <BoxTypography text="Number Of Floors" number="7" />
+              <BoxTypography text="Floor Location" number="4" />
+              <BoxTypography text="Number Of Bathrooms" number="3" />
+              <BoxTypography text="Heating" number="Natural Gas" />
             </Grid>
           </Grid>
           <TabsBoxPostSingle />

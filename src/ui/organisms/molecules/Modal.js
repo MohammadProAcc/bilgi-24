@@ -78,24 +78,32 @@ export function Modal(props) {
         <DialogContent>
           <Grid container direction="column" gap="20px">
             <ContentModalContactInfo
+            widthImg={22}
+            heightImg={22}
             srcIcon="/images/user-pic.svg"
               title="Username:"
               desc="Morteza Shirinzadeh"
             />
             <Divider />
             <ContentModalContactInfo
+            widthImg={22}
+            heightImg={22}
             srcIcon="/images/mail-pic.svg"
               title="Mail:"
               desc="itsmorteza.sh@gmail.com"
             />
             <Divider />
             <ContentModalContactInfo
+            widthImg={22}
+            heightImg={22}
             srcIcon="/images/whatsapp-pic.svg"
               title="Whatsapp:"
               desc="+98 921 008 5374"
             />
             <Divider />
             <ContentModalContactInfo
+            widthImg={22}
+            heightImg={22}
             srcIcon="/images/call-pic.svg"
               title="Call:"
               desc="+98 921 008 5374"
