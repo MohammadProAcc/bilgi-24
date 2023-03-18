@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 export function Layout(props) {
   return (
     <>
-      <Header headerMode={props.headerMode} />
+      <Header headerMode={props.headerMode} authorized={props.authorized} />
       <Main>{props.children}</Main>
       <Footer />
     </>

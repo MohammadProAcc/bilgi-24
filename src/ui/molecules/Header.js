@@ -8,6 +8,7 @@ import {
   Button,
   Flex,
   HeaderExtension,
+  HeaderProfileButton,
   Justifier,
   LangSelection,
   LoginRegisterModal,
@@ -56,18 +57,22 @@ export function Header(props) {
                 paddingLeft: "2.75rem",
               }}
             >
-              <Button
-                {...PrimaryOutlineButtonProps({
-                  style: {
-                    gap: "7.5px",
-                    border: `3px solid ${Color.sub}`,
-                  },
-                })}
-                onClick={() => setShowLoginRegisterModal(true)}
-              >
-                <SVGLogout />
-                Login / Register
-              </Button>
+              {props.authorized ? (
+                <HeaderProfileButton />
+              ) : (
+                <Button
+                  {...PrimaryOutlineButtonProps({
+                    style: {
+                      gap: "7.5px",
+                      border: `3px solid ${Color.sub}`,
+                    },
+                  })}
+                  onClick={() => setShowLoginRegisterModal(true)}
+                >
+                  <SVGLogout />
+                  Login / Register
+                </Button>
+              )}
               <Button
                 {...PrimaryButtonProps({
                   style: {

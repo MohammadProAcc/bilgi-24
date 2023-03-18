@@ -4,7 +4,7 @@ import { Dashboard } from "../organisms";
 
 export function ProfilePage() {
   return (
-    <Layout headerMode="">
+    <Layout headerMode="" authorized>
       <Container maxWidth="lx">
         <Box sx={{ my: 4 }}>
           <Dashboard />
