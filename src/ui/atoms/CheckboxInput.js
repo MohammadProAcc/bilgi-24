@@ -3,7 +3,7 @@ import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 
 export function CheckboxInput(props) {
   return (
-    <_>
+    <_ Style={props.Style} rootStype={props.rootStyle}>
       <FormGroup>
         <FormControlLabel
           control={
@@ -30,8 +30,11 @@ const _ = styled.div`
 
   .MuiButtonBase-root {
     width: 2.25rem !important;
+    ${(props) => props.rootStyle}
   }
   span {
     font-size: 0.75rem;
   }
+
+  ${(props) => props.Style}
 `;

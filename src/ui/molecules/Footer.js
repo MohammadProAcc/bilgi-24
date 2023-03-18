@@ -8,13 +8,15 @@ import { Color } from "$/design";
 export function Footer() {
   return (
     <_>
-      <Justifier Style={css`
-        width: 100%;
-        height: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      `}>
+      <Justifier
+        Style={css`
+          width: 100%;
+          height: 100%;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        `}
+      >
         {FOOTER_ITEMS.columns.map((column) => (
           <ul key={column.id}>
             <div className="column-title">{column.title}</div>
@@ -42,11 +44,17 @@ const _ = styled.footer`
   }
 
   ul {
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+
     li {
       transform: translateX(1.125rem);
+      list-style: disc;
 
       &::marker {
         color: ${Color.sub};
+        background-color: ${Color.sub};
         font-size: 1.25rem;
       }
     }

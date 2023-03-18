@@ -19,12 +19,14 @@ export const theme = createTheme({
       main: "#F5B61A",
     },
     plain: {
-      main: "#fff"
+      main: "#fff",
     },
-    info:{
-      main:'#F5B61A'
-    }
-    ,
+    deactive: {
+      main: "rgba(1,31,40, 50%)",
+    },
+    info: {
+      main: "#F5B61A",
+    },
     error: {
       main: red.A400,
     },

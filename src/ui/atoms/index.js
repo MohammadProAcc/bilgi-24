@@ -17,3 +17,4 @@ export * from "./SVGPlus";
 export * from "./SVGSearch";
 export * from "./SVGSearchDark";
 export * from "./LocationInput";
+export * from "./SegmentedInput";
