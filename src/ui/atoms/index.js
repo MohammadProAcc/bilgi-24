@@ -29,3 +29,6 @@ export * from "./SVGMessages";
 export * from "./SVGFavorite";
 export * from "./SVGCart";
 export * from "./SVGLogoutSmall";
+export * from "./ShadowedImage";
+export * from "./SVGCamera";
+export * from "./SVGEditSub";

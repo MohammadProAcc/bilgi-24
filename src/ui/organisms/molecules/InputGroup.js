@@ -4,7 +4,7 @@ import { TextField } from "@mui/material";
 
 export function InputGroup(props) {
   return (
-    <_ label={props.label} icon={props.icon}>
+    <_ label={props.label} icon={props.icon} Style={props.Style}>
       <label htmlFor={props.label}>{props.label}</label>
       <TextField
         id={props.label}
@@ -51,4 +51,6 @@ const _ = styled.div`
       background-position: calc(100% - 0.9375rem) center;
     }
   }
+
+  ${(props) => props.Style}
 `;

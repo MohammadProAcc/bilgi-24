@@ -20,4 +20,6 @@ export * from "./PostSingle";
 export * from "./Dashboard";
 export * from "./molecules";
 export * from "./PreviewPost";
-export * from "./PreviewPostButtons"
+export * from "./PreviewPostButtons";
+export * from "./EditProfileForm";
+export * from "./EditProfileFormButtons"

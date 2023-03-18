@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
+import { EditProfileForm } from "./EditProfileForm";
 import {
   CartBox,
   CategoryListViewCard,
@@ -100,7 +101,7 @@ export function Dashboard() {
           onChangeIndex={handleChangeIndex}
         >
           <TabPanel value={value} index={0}>
-            Item One
+            <EditProfileForm />
           </TabPanel>
           <TabPanel value={value} index={1}>
             <Grid container direction="column" gap="32px">
@@ -122,7 +123,6 @@ export function Dashboard() {
                 <ContactBox />
                 <ContactBox />
                 <ContactBox />
-               
               </Grid>
               <Grid container xl lg md>
                 <Box
