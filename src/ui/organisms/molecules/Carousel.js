@@ -116,7 +116,7 @@ export function Carousel(props) {
         }}
         spaceBetween={10}
         navigation={true}
-        thumbs={{ thumbsSwiper }}
+        thumbs={{swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs, Pagination]}
         className="mySwiper2"
       >
