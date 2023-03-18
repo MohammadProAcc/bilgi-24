@@ -1,14 +1,19 @@
-import { Box, Container, Divider, Grid } from "@mui/material";
-import { SideBar } from "$/ui/organisms";
-import { ListViewCategory } from "$/ui/organisms";
+import { Layout, ListViewCategory, SideBar } from "$/ui";
+import { Container, Grid } from "@mui/material";
 
 export function CategoryPage() {
   return (
-    <Container maxWidth="lx">
-      <Grid container direction="row" sx={{ my: 4,justifyContent:"center" }}>
-        <SideBar/>
-        <ListViewCategory/>
-      </Grid>
-    </Container>
+    <Layout>
+      <Container maxWidth="lx">
+        <Grid
+          container
+          direction="row"
+          sx={{ my: 4, justifyContent: "center" }}
+        >
+          <SideBar />
+          <ListViewCategory />
+        </Grid>
+      </Container>
+    </Layout>
   );
 }

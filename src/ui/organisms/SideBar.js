@@ -69,27 +69,27 @@ export function SideBar() {
             </Typography>
             <FormGroup>
               <CustomFormControlLabel
-                control={<Checkbox size="small" />}
+                control={<Checkbox size="small" color="sub" />}
                 label="Residential"
               />
               <CustomFormControlLabel
-                control={<Checkbox size="small" />}
+                control={<Checkbox size="small" color="sub" />}
                 label="Workplace"
               />
               <CustomFormControlLabel
-                control={<Checkbox size="small" />}
+                control={<Checkbox size="small" color="sub" />}
                 label="Plot"
               />
               <CustomFormControlLabel
-                control={<Checkbox size="small" />}
+                control={<Checkbox size="small" color="sub" />}
                 label="Building"
               />
               <CustomFormControlLabel
-                control={<Checkbox size="small" />}
+                control={<Checkbox size="small" color="sub" />}
                 label="Tourist Facility"
               />
               <CustomFormControlLabel
-                control={<Checkbox size="small" />}
+                control={<Checkbox size="small" color="sub" />}
                 label="Entertainment Complex"
               />
             </FormGroup>

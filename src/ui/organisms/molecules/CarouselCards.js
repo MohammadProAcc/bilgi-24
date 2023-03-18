@@ -59,7 +59,7 @@ export function CarouselCards(props) {
           height={114}
           alt="box-image"
           src={props.srcImage}
-          style={{ borderRadius: "5px" }}
+          style={{ borderRadius: "10px" }}
         />
         {isShop === "true" ? (
           <Image

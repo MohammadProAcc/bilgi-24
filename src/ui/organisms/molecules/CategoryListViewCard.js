@@ -15,6 +15,7 @@ function handleClick(event) {
   event.preventDefault();
   console.info("You clicked a breadcrumb.");
 }
+// FIXME:
 export function CategoryListViewCard(props) {
   const CustomLink = styled(Link)({
     fontSize: "10px",

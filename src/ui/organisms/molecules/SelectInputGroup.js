@@ -3,7 +3,13 @@ import styled from "@emotion/styled";
 
 export function SelectInputGroup(props) {
   return (
-    <_ label={props.label} icon={props.icon} style={props.style}>
+    <_
+      label={props.label}
+      icon={props.icon}
+      style={props.style}
+      Style={props.Style}
+      rootStyle={props.rootStyle}
+    >
       <label htmlFor={props.label}>{props.label}</label>
       <SelectSmall
         label={props.label}
@@ -30,6 +36,7 @@ const _ = styled.div`
 
   .MuiInputBase-root {
     height: 2.5rem;
+    ${(props) => props.rootStyle}
   }
 
   .form-group-input {
@@ -43,4 +50,6 @@ const _ = styled.div`
       background-position: calc(100% - 0.9375rem) center;
     }
   }
+
+  ${(props) => props.Style}
 `;

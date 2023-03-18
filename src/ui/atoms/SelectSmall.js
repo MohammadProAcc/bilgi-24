@@ -28,11 +28,12 @@ export function SelectSmall(props) {
 
   return (
     <_>
-      <FormControl sx={{ width: 300 }}>
+      <FormControl sx={{ width: "100%" }}>
         <Select
           value={selected}
           onChange={(e) => setSelected(e.target.value)}
           renderValue={() => selected}
+          // FIXME: remove border
           input={<OutlinedInput />}
           MenuProps={MenuProps}
           inputProps={{ "aria-label": "Without label" }}

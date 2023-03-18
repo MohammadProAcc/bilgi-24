@@ -1,3 +1,6 @@
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import ShareIcon from "@mui/icons-material/Share";
 import {
   Box,
   Breadcrumbs,
@@ -8,18 +11,10 @@ import {
   styled,
   Typography,
 } from "@mui/material";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import ShareIcon from "@mui/icons-material/Share";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import {
-  BoxTypography2,
-  Carousel,
-  Modal,
-  TabsBoxPostSingle,
-} from "./molecules";
 import Image from "next/image";
-import { BoxCarousel } from "./BoxCarousel";
 import { useState } from "react";
+import { BoxCarousel } from "./BoxCarousel";
+import { BoxTypography, Carousel, Modal, TabsBoxPostSingle } from "./molecules";
 
 export function PostSingle() {
   const [open, setOpen] = useState(false);
@@ -199,16 +194,16 @@ export function PostSingle() {
           </Box>
           <Grid container direction="row">
             <Grid container direction="column" padding="10px" gap="25px" xl>
-              <BoxTypography2 text="M2 (groos)" number="105" />
-              <BoxTypography2 text="M2 (net)" number="95" />
-              <BoxTypography2 text="Number Of Rooms" number="6" />
-              <BoxTypography2 text="Building Age" number="15" />
+              <BoxTypography text="M2 (groos)" number="105" />
+              <BoxTypography text="M2 (net)" number="95" />
+              <BoxTypography text="Number Of Rooms" number="6" />
+              <BoxTypography text="Building Age" number="15" />
             </Grid>
             <Grid container direction="column" padding="10px" gap="25px" xl>
-              <BoxTypography2 text="Number Of Floors" number="7" />
-              <BoxTypography2 text="Floor Location" number="4" />
-              <BoxTypography2 text="Number Of Bathrooms" number="3" />
-              <BoxTypography2 text="Heating" number="Natural Gas" />
+              <BoxTypography text="Number Of Floors" number="7" />
+              <BoxTypography text="Floor Location" number="4" />
+              <BoxTypography text="Number Of Bathrooms" number="3" />
+              <BoxTypography text="Heating" number="Natural Gas" />
             </Grid>
           </Grid>
           <TabsBoxPostSingle />
