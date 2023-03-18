@@ -11,15 +11,6 @@ import {
   styled,
   Typography,
 } from "@mui/material";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import ShareIcon from "@mui/icons-material/Share";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import {
-  BoxTypography,
-  Carousel,
-  Modal,
-  TabsBoxPostSingle,
-} from "./molecules";
 import Image from "next/image";
 import { useState } from "react";
 import { BoxCarousel } from "./BoxCarousel";
