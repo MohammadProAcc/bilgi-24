@@ -11,6 +11,15 @@ import {
   styled,
   Typography,
 } from "@mui/material";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import ShareIcon from "@mui/icons-material/Share";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import {
+  BoxTypography,
+  Carousel,
+  Modal,
+  TabsBoxPostSingle,
+} from "./molecules";
 import Image from "next/image";
 import { useState } from "react";
 import { BoxCarousel } from "./BoxCarousel";
@@ -141,7 +150,7 @@ export function PostSingle() {
                 width: { xl: "124px", lg: "124px", md: "100px" },
                 height: { xl: "36px", lg: "36px", md: "26px" },
                 textTransform: "none",
-                fontSize: { xl: "16px", lg: "16px", md: "12px" },
+                fontSize: { xl: "14px", lg: "14px", md: "12px" },
                 fontWeight: 500,
                 color: "#011F28",
                 backgroundColor: "#F5B61A",

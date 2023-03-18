@@ -1,5 +1,6 @@
 import { Container, Grid } from "@mui/material";
-import { PostSingle } from "$/ui/organisms";
+import { PostSingle } from "../organisms";
+// import { PostSingle } from "$/ui/organisms";
 
 export function PostSinglePage() {
   return (

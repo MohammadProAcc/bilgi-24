@@ -15,3 +15,4 @@ export * from "./HeaderSearchExtension";
 export * from "./InputGroup";
 export * from "./PostTypeCard";
 export * from "./SelectInputGroup";
+export * from "./CartBox";

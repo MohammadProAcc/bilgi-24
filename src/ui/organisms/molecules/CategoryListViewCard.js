@@ -62,8 +62,8 @@ export function CategoryListViewCard(props) {
         xl={8}
         gap="20px"
       >
-        <Grid container direction="row">
-          <Grid container direction="column" xl>
+        <Grid container direction="row" gap="20px">
+          <Grid container direction="column" sx={{width:"fit-content"}} xl>
             <Grid container direction="row" alignItems="center" gap="4px">
               <Typography
                 sx={{ fontSize: "14px", fontWeight: 500, color: "#1E1E1E" }}
