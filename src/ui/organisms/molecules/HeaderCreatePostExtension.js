@@ -1,3 +1,4 @@
+import { BreakPoint } from "$/design";
 import styled from "@emotion/styled";
 import { PostTypeCard } from "./PostTypeCard";
 
@@ -26,4 +27,9 @@ const _ = styled.div`
   display: flex;
   justify-content: center;
   gap: 3.125rem;
+
+  @media ${BreakPoint.device.max.md} {
+    width: 100%;
+    flex-direction: column;
+  }
 `;

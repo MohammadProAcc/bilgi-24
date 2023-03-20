@@ -40,9 +40,11 @@ export function LoginForm() {
           <CheckboxInput label="Remember Me" />
           <Link href="#">Forget Password</Link>
         </div>
-        <Button className="submit-button" color="sub" variant="contained">
-          Login
-        </Button>
+        <Link href="/profile" className="submit">
+          <Button className="submit-button" color="sub" variant="contained">
+            Login
+          </Button>
+        </Link>
       </form>
     </_>
   );
@@ -124,13 +126,19 @@ const _ = styled.div`
       }
     }
 
-    .submit-button {
-      align-self: center;
+    a.submit {
+      width: 100%;
       margin-top: 2.875rem;
-      width: 9.5rem;
-      height: 2.5rem;
+      display: flex;
+      justify-content: center;
 
-      color: ${Color.strokeDark};
+      .submit-button {
+        align-self: center;
+        width: 9.5rem;
+        height: 2.5rem;
+
+        color: ${Color.strokeDark};
+      }
     }
   }
 `;

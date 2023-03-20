@@ -1,4 +1,5 @@
-import { Color } from "$/design";
+import { BreakPoint, Color } from "$/design";
+import { theme } from "$/utils";
 import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 import Link from "next/link";
@@ -13,11 +14,14 @@ export function PostTypeCard(props) {
       </p>
       <Link href="/create-post">
         <Button
-          style={{
+          sx={{
             width: "11.375rem",
             height: "2.5rem",
             color: Color.strokeDark,
             borderWidth: "0.1875rem",
+            [theme.breakpoints.down("md")]: {
+              width: "100%",
+            },
           }}
           color={props.color}
           variant={props.variant}
@@ -64,5 +68,25 @@ const _ = styled.div`
     letter-spacing: 0em;
     text-align: center;
     color: ${Color.strokeDark};
+  }
+
+  @media ${BreakPoint.device.max.md} {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+
+    gap: 0.75rem;
+
+    a {
+      width: 100%;
+    }
+
+    img {
+      display: none;
+    }
+
+    .description {
+      display: none;
+    }
   }
 `;

@@ -1,33 +1,22 @@
+import { BreakPoint, Zindex } from "$/design";
 import {
-  Color,
-  PrimaryButtonProps,
-  PrimaryOutlineButtonProps,
-  Zindex,
-} from "$/design";
-import {
-  Button,
-  Flex,
   HeaderExtension,
-  HeaderProfileButton,
+  HeaderLogoSection,
   Justifier,
-  LangSelection,
-  LoginRegisterModal,
-  SearchInput,
   SVGEllipse1,
   SVGEllipse2,
-  SVGLogo,
-  SVGLogout,
-  SVGPlus,
 } from "$/ui";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import Link from "next/link";
+import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
+import { HeaderToolbar } from "./HeaderToolbar";
 
 export function Header(props) {
   const [mode, setMode] = useState(props.headerMode ?? "initial"); // initial - search - addPost
-  const [showLoginRegisterModal, setShowLoginRegisterModal] = useState(false);
   const activeExtension = mode === "search" || mode === "addPost";
+
+  const isMd = useMediaQuery(BreakPoint.device.min.md);
 
   return (
     <_ expand={activeExtension} headerMode={mode}>
@@ -41,57 +30,13 @@ export function Header(props) {
         }
       >
         <div className="main-header-container">
-          <Flex>
-            <Link href="/" title="logo" className="logo">
-              <SVGLogo />
-            </Link>
-            <div className="logo-divider" />
-            {!activeExtension && <SearchInput />}
-          </Flex>
+          <HeaderLogoSection searchInput={!activeExtension} />
 
-          <Flex>
-            <LangSelection />
-            <Flex
-              style={{
-                gap: "0.9375rem",
-                paddingLeft: "2.75rem",
-              }}
-            >
-              {props.authorized ? (
-                <HeaderProfileButton />
-              ) : (
-                <Button
-                  {...PrimaryOutlineButtonProps({
-                    style: {
-                      gap: "7.5px",
-                      border: `3px solid ${Color.sub}`,
-                    },
-                  })}
-                  onClick={() => setShowLoginRegisterModal(true)}
-                >
-                  <SVGLogout />
-                  Login / Register
-                </Button>
-              )}
-              <Button
-                {...PrimaryButtonProps({
-                  style: {
-                    gap: "0.3125rem",
-                  },
-                })}
-                onClick={() => setMode("addPost")}
-              >
-                <SVGPlus />
-                Add a Free Post
-              </Button>
-            </Flex>
-          </Flex>
+          <HeaderToolbar setMode={setMode} />
         </div>
-        <HeaderExtension active={activeExtension} headerMode={mode} />
-        <LoginRegisterModal
-          open={showLoginRegisterModal}
-          handleClose={() => setShowLoginRegisterModal(false)}
-        />
+
+        <HeaderExtension active={isMd && activeExtension} headerMode={mode} />
+
         {activeExtension && (
           <>
             <SVGEllipse1
@@ -121,12 +66,14 @@ export function Header(props) {
 const _ = styled.header`
   width: 100%;
   /* Box Size */
-  height: ${(props) =>
-    props.headerMode === "search"
-      ? "33.125rem"
-      : props.headerMode === "addPost"
-      ? "37.375rem"
-      : "7.125rem"};
+  @media ${BreakPoint.device.min.md} {
+    height: ${(props) =>
+      props.headerMode === "search"
+        ? "33.125rem"
+        : props.headerMode === "addPost"
+        ? "37.375rem"
+        : "7.125rem"};
+  }
   padding: 0 3.25rem;
   margin-bottom: ${(props) => props.headerMode === "addPost" && "22.3125rem"};
 
@@ -140,8 +87,10 @@ const _ = styled.header`
   ${(props) =>
     props.expand
       ? css`
-          justify-content: space-between;
-          align-items: flex-start;
+          @media ${BreakPoint.device.min.md} {
+            justify-content: space-between;
+            align-items: flex-start;
+          }
         `
       : css``}
 
@@ -174,5 +123,22 @@ const _ = styled.header`
     margin-left: 1.5rem;
 
     border-left: 1px solid white;
+  }
+
+  @media ${BreakPoint.device.max.md} {
+    height: 4rem;
+    padding: 0 1rem;
+
+    .main-header-container {
+      height: 3.125rem;
+    }
+
+    .logo {
+      width: 5rem;
+    }
+
+    .logo-divider {
+      display: none;
+    }
   }
 `;

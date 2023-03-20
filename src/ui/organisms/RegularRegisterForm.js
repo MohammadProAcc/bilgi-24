@@ -1,4 +1,4 @@
-import { Color } from "$/design";
+import { BreakPoint, Color } from "$/design";
 import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 import Link from "next/link";
@@ -58,13 +58,19 @@ export function RegularRegisterForm() {
         }
       />
 
-      <Button
-        color="sub"
-        variant="contained"
-        style={{ minWidth: "9.5rem", maxWidth: "9.5rem" }}
-      >
-        Sign Up
-      </Button>
+      <Link href="/profile" className="submit">
+        <Button
+          color="sub"
+          variant="contained"
+          style={{
+            minWidth: "9.5rem",
+            maxWidth: "9.5rem",
+            color: Color.strokeDark,
+          }}
+        >
+          Sign Up
+        </Button>
+      </Link>
     </_>
   );
 }
@@ -79,6 +85,12 @@ const _ = styled.form`
 
     &:hover {
       text-decoration: underline;
+    }
+
+    &.submit {
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -97,6 +109,10 @@ const _ = styled.form`
     width: 100%;
     display: flex;
     gap: 2.25rem;
+
+    @media ${BreakPoint.device.max.md} {
+      flex-direction: column;
+    }
   }
 
   .divider {

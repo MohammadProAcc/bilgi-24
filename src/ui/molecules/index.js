@@ -6,3 +6,5 @@ export * from "./UploadPostAssets";
 export * from "./UploadedImages";
 export * from "./FilesCarousel";
 export * from "./HeaderProfileButton";
+export * from "./HeaderLogoSection"
+export * from "./LoginRegister"

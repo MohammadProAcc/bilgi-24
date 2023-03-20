@@ -23,3 +23,4 @@ export * from "./PreviewPost";
 export * from "./PreviewPostButtons";
 export * from "./EditProfileForm";
 export * from "./EditProfileFormButtons"
+export * from "./HeaderDrawer"

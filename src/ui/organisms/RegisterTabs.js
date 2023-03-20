@@ -5,8 +5,9 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import styled from "@emotion/styled";
-import { Color } from "$/design";
+import { BreakPoint, Color } from "$/design";
 import { InsitutionalSignupForm, RegularRegisterForm } from "$/ui";
+import { useMediaQuery } from "@mui/material";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -48,6 +49,8 @@ export function RegisterTabs() {
     setValue(newValue);
   };
 
+  const isMd = useMediaQuery(BreakPoint.device.min.md);
+
   return (
     <_>
       <Box>
@@ -55,7 +58,16 @@ export function RegisterTabs() {
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          orientation={isMd ? "" : "vertical"}
           // textColor={Color.strokeDark}
+          sx={{
+            "& .MuiTabs-flexContainer": {
+              alignItems: "flex-end",
+            },
+            "& .MuiButtonBase-root": {
+              alignItems: "flex-end",
+            },
+          }}
         >
           <Tab label="Regular Sign Up" {...a11yProps(0)} />
           <Tab label="Institutional Sign Up" {...a11yProps(1)} />

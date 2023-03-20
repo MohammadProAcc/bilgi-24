@@ -1,3 +1,4 @@
+import { BreakPoint } from "$/design";
 import { Footer, Header } from "$/ui";
 import styled from "@emotion/styled";
 
@@ -13,4 +14,8 @@ export function Layout(props) {
 
 const Main = styled.div`
   min-height: calc(100vh - 7.25rem);
+
+  @media ${BreakPoint.device.max.md} {
+    min-height: calc(100vh - 4rem);
+  }
 `;

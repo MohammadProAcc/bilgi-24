@@ -1,4 +1,4 @@
-import { Color } from "$/design";
+import { BreakPoint, Color } from "$/design";
 import styled from "@emotion/styled";
 import { Box, TextField } from "@mui/material";
 
@@ -17,6 +17,11 @@ export function SearchInput() {
 }
 
 const _ = styled(Box)`
+
+  @media ${BreakPoint.device.max.md} {
+    width: 100%;
+  }
+
   width: 32.875rem;
   height: 3rem;
 

@@ -58,13 +58,19 @@ export function InsitutionalSignupForm() {
         }
       />
 
-      <Button
-        color="sub"
-        variant="contained"
-        style={{ minWidth: "9.5rem", maxWidth: "9.5rem" }}
-      >
-        Sign Up
-      </Button>
+      <Link href="/profile" className="submit">
+        <Button
+          color="sub"
+          variant="contained"
+          style={{
+            minWidth: "9.5rem",
+            maxWidth: "9.5rem",
+            color: Color.strokeDark,
+          }}
+        >
+          Sign Up
+        </Button>
+      </Link>
     </_>
   );
 }
@@ -79,6 +85,12 @@ const _ = styled.form`
 
     &:hover {
       text-decoration: underline;
+    }
+
+    &.submit {
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
   }
 
