@@ -31,8 +31,8 @@ export function EditProfileForm() {
           />
         </ShadowedImage>
 
-        <div className="edit-info">
-          <div className="double-input column">
+        <div className="edit-info desktop">
+          <div className="double-input">
             <InputGroup
               label="Name"
               inputProps={{ value: "Morteza Shirinzadeh", color: "sub" }}
@@ -45,7 +45,7 @@ export function EditProfileForm() {
               icon="/images/edit-sub.svg"
             />
           </div>
-          <div className="double-input desktop">
+          <div className="double-input">
             <InputGroup
               label="Phone Number"
               inputProps={{
@@ -69,26 +69,41 @@ export function EditProfileForm() {
         </div>
       </div>
       <div className="body">
-        <div className="double-input column mobile">
-          <InputGroup
-            label="Phone Number"
-            inputProps={{
-              value: "+98 921 008 5374",
-              color: "sub",
-              type: "tel",
-            }}
-            icon="/images/edit-sub.svg"
-          />
+        <div className="edit-info mobile">
+          <div className="double-input column">
+            <InputGroup
+              label="Name"
+              inputProps={{ value: "Morteza Shirinzadeh", color: "sub" }}
+              icon="/images/edit-sub.svg"
+            />
 
-          <InputGroup
-            label="Fixed Number"
-            inputProps={{
-              value: "+98 921 008 5374",
-              color: "sub",
-              type: "tel",
-            }}
-            icon="/images/edit-sub.svg"
-          />
+            <InputGroup
+              label="Surname"
+              inputProps={{ value: "Jacktr58", color: "sub" }}
+              icon="/images/edit-sub.svg"
+            />
+          </div>
+          <div className="double-input column">
+            <InputGroup
+              label="Phone Number"
+              inputProps={{
+                value: "+98 921 008 5374",
+                color: "sub",
+                type: "tel",
+              }}
+              icon="/images/edit-sub.svg"
+            />
+
+            <InputGroup
+              label="Fixed Number"
+              inputProps={{
+                value: "+98 921 008 5374",
+                color: "sub",
+                type: "tel",
+              }}
+              icon="/images/edit-sub.svg"
+            />
+          </div>
         </div>
         <div className="input-bar">
           <InputGroup
@@ -160,6 +175,12 @@ const _ = styled.div`
   }
 
   @media ${BreakPoint.device.max.md} {
+    .edit-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
     .body {
       margin-top: 1rem;
 
