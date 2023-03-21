@@ -1,3 +1,4 @@
+import { SVGCarbonViewRightMargined } from "$/ui/atoms";
 import { Box, Grid, Typography } from "@mui/material";
 
 // export function BoxTypography(props) {
@@ -40,8 +41,15 @@ export function BoxTypography(props) {
         position="absolute"
         bgcolor="white"
         left={0}
-        sx={{ fontSize: "10px", fontWeight: 400, ...props.sxText }}
+        sx={{
+          fontSize: "10px",
+          fontWeight: 400,
+          display: "flex",
+          alignItems: "center",
+          ...props.sxText,
+        }}
       >
+        {props.isPreview && <SVGCarbonViewRightMargined />}
         {props.text}
       </Typography>
       <Typography

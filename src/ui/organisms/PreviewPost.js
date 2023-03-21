@@ -1,24 +1,28 @@
+import { theme } from "$/utils";
 import { css } from "@emotion/react";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShareIcon from "@mui/icons-material/Share";
 import {
   Box,
-  Breadcrumbs,
   Button,
   Grid,
+  IconButton,
   Link,
   styled,
   Typography,
 } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
-import { SVGViewCarbon } from "../atoms/SVGViewCarbon";
+import { SVGCarbonViewRightMargined } from "../atoms";
+import { BreadCrumbs } from "../molecules";
+import { BoxCarousel } from "./BoxCarousel";
 import {
-  BoxTypographyPreview,
-  Carousel,
+  BoxTypography,
+  Modal,
   PreviewPostImagesCarousel,
+  SinglePostImagesCarousel,
   TabsBoxPostSingle,
 } from "./molecules";
-import { PreviewPostButtons } from "./PreviewPostButtons";
 
 export function PreviewPost() {
   const [open, setOpen] = useState(false);
@@ -38,44 +42,7 @@ export function PreviewPost() {
     fontSize: "10px",
     fontWeight: 400,
   });
-  const breadcrumbs = [
-    <CustomLink
-      underline="none"
-      key="1"
-      color="inherit"
-      href="/"
-      onClick={handleClick}
-    >
-      Real State
-    </CustomLink>,
-    <CustomLink
-      underline="none"
-      key="2"
-      color="inherit"
-      href="/"
-      onClick={handleClick}
-    >
-      Residential
-    </CustomLink>,
-    <CustomLink
-      underline="none"
-      key="3"
-      color="inherit"
-      href="/"
-      onClick={handleClick}
-    >
-      For Rent
-    </CustomLink>,
-    <CustomLink
-      underline="none"
-      key="4"
-      color="inherit"
-      href="/"
-      onClick={handleClick}
-    >
-      Apartment
-    </CustomLink>,
-  ];
+  const breadcrumbs = ["Real State", "Residential", "For Rent", "Apartment"];
   return (
     <Grid
       id="main"
@@ -94,54 +61,62 @@ export function PreviewPost() {
         <Grid
           id="left"
           container
-          alignItems="center"
+          direction="column"
           gap="22px"
           md={8}
           lg={8}
           xl={8}
         >
-          <SVGViewCarbon />
-          <Breadcrumbs
+          <Box
             sx={{
-              "& .MuiBreadcrumbs-separator": {
-                marginLeft: "0",
-                marginRight: "0",
-              },
-              "& li": {
-                display: "flex",
-                alignItems: "center",
-              },
+              display: "flex",
+              alignItems: "center",
             }}
-            separator={<NavigateNextIcon fontSize="10px" />}
           >
-            {breadcrumbs}
-          </Breadcrumbs>
+            <SVGCarbonViewRightMargined />
+            <BreadCrumbs
+              items={breadcrumbs}
+              Style={css`
+                li {
+                  font-size: 0.75rem;
+                }
+              `}
+            />
+          </Box>
           <Grid
             id="title"
             container
             direction="row"
             justifyContent="space-between"
+            sx={{
+              [theme.breakpoints.down("md")]: {
+                rowGap: "1rem",
+              },
+            }}
           >
-            <Grid
-              id="title-text"
-              container
-              direction="row"
-              md
-              lg
-              xl
-              alignItems="center"
-              gap="1.25rem"
-            >
-              <SVGViewCarbon />
+            <Grid id="title-text" container direction="row" md lg xl>
               <Typography
                 sx={{
                   fontSize: { xl: "24px", lg: "24px", md: "18px" },
                   fontWeight: 500,
                   color: "#1E1E1E",
+                  display: "flex",
+                  alignItems: "center",
                 }}
               >
+                <SVGCarbonViewRightMargined />
                 Apartment Best Location
               </Typography>
+              <IconButton>
+                <ShareIcon
+                  sx={{ width: "18px", height: "20px", color: "#F5B61A" }}
+                />
+              </IconButton>
+              <IconButton>
+                <FavoriteBorderIcon
+                  sx={{ width: "20px", height: "18px", color: "#F5B61A" }}
+                />
+              </IconButton>
             </Grid>
             <Button
               variant="contained"
@@ -179,10 +154,9 @@ export function PreviewPost() {
                 color: "#1E1E1E",
                 display: "flex",
                 alignItems: "center",
-                gap: "1.25rem",
               }}
             >
-              <SVGViewCarbon />
+              <SVGCarbonViewRightMargined />
               Turkey, Istanbul
             </Typography>
             <Typography
@@ -191,7 +165,16 @@ export function PreviewPost() {
               35,000$
             </Typography>
           </Grid>
-          <Box>
+          <Box
+            sx={{
+              display: "flex",
+            }}
+          >
+            <SVGCarbonViewRightMargined
+              Style={css`
+                margin-top: 0.25rem;
+              `}
+            />
             <Typography
               sx={{
                 fontSize: "14px",
@@ -199,41 +182,66 @@ export function PreviewPost() {
                 color: "#1E1E1E",
                 textAlign: "justify",
                 lineHeight: "203%",
-                display: "flex",
-                gap: "1.25rem",
               }}
             >
-              <SVGViewCarbon
-                Style={css`
-                  min-width: 1.375rem;
-                `}
-              />
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua
-                Egestas purus viverra accumsan in nisl nisi Arcu cursus vitae
-                congue mauris rhoncus aenean vel elit scelerisque purus viverra
-                accumsan in nisl nisi Arcu cursus vitae congue mauris rhoncus
-                aenean vel elit nisi Arcu cursus scelerisque.
-              </span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua Egestas
+              purus viverra accumsan in nisl nisi Arcu cursus vitae congue
+              mauris rhoncus aenean vel elit scelerisque purus viverra accumsan
+              in nisl nisi Arcu cursus vitae congue mauris rhoncus aenean vel
+              elit nisi Arcu cursus scelerisque.
             </Typography>
           </Box>
+          {/* Mobile */}
+          <Grid
+            id="right"
+            container
+            direction="column"
+            alignItems="flex-end"
+            gap="22px"
+            md={4}
+            lg={4}
+            xl={4}
+            sx={{
+              marginTop: "1rem",
+              alignItems: "center",
+              [theme.breakpoints.up("md")]: {
+                display: "none",
+              },
+            }}
+          >
+            <Typography
+              sx={{ fontSize: "12px", fontWeight: 400, color: "#1E1E1E" }}
+            >
+              Ad No 1215622
+            </Typography>
+            <SinglePostImagesCarousel />
+            <Box>
+              <Image
+                width={370}
+                height={190}
+                alt="map-pic"
+                src="/images/map-pic.png"
+              />
+            </Box>
+          </Grid>
           <Grid container direction="row">
             <Grid container direction="column" padding="10px" gap="25px" xl>
-              <BoxTypographyPreview text="M2 (groos)" number="105" preview />
-              <BoxTypographyPreview text="M2 (net)" number="95" />
-              <BoxTypographyPreview text="Number Of Rooms" number="6" />
-              <BoxTypographyPreview text="Building Age" number="15" />
+              <BoxTypography text="M2 (groos)" number="105" isPreview />
+              <BoxTypography text="M2 (net)" number="95" isPreview />
+              <BoxTypography text="Number Of Rooms" number="6" isPreview />
+              <BoxTypography text="Building Age" number="15" isPreview />
             </Grid>
             <Grid container direction="column" padding="10px" gap="25px" xl>
-              <BoxTypographyPreview text="Number Of Floors" number="7" />
-              <BoxTypographyPreview text="Floor Location" number="4" />
-              <BoxTypographyPreview text="Number Of Bathrooms" number="3" />
-              <BoxTypographyPreview text="Heating" number="Natural Gas" />
+              <BoxTypography text="Number Of Floors" number="7" isPreview />
+              <BoxTypography text="Floor Location" number="4" isPreview />
+              <BoxTypography text="Number Of Bathrooms" number="3" isPreview />
+              <BoxTypography text="Heating" number="Natural Gas" isPreview />
             </Grid>
           </Grid>
           <TabsBoxPostSingle />
         </Grid>
+        {/* Desktop */}
         <Grid
           id="right"
           container
@@ -243,6 +251,13 @@ export function PreviewPost() {
           md={4}
           lg={4}
           xl={4}
+          sx={{
+            [theme.breakpoints.down("md")]: {
+              display: "none",
+              marginTop: "1rem",
+              alignItems: "center",
+            },
+          }}
         >
           <Typography
             sx={{ fontSize: "12px", fontWeight: 400, color: "#1E1E1E" }}
@@ -259,7 +274,15 @@ export function PreviewPost() {
             />
           </Box>
         </Grid>
-        <PreviewPostButtons />
+      </Grid>
+      <Grid id="carousel" container>
+        <BoxCarousel
+          carouselTitle="Similar Posts"
+          sxSwiperBox={{ width: "100%" }}
+          sxGridMain={{ padding: 0 }}
+          sxDivider={{ width: "90 %" }}
+        />
+        <Modal open={open} onClose={handleClose} />
       </Grid>
     </Grid>
   );

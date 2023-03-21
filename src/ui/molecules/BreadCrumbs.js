@@ -4,7 +4,7 @@ import { v4 } from "uuid";
 
 export function BreadCrumbs(props) {
   return (
-    <_>
+    <_ Style={props.Style}>
       {props.items.map((breadCrumb) => (
         <li key={v4()}>{breadCrumb}</li>
       ))}
@@ -53,4 +53,6 @@ const _ = styled.ul`
       white-space: nowrap;
     }
   }
+
+  ${(props) => props.Style}
 `;

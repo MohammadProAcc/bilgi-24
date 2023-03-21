@@ -34,3 +34,4 @@ export * from "./SVGCamera";
 export * from "./SVGEditSub";
 export * from "./HeaderAddPostButton";
 export * from "./HeaderLoginRegisterButton"
+export * from "./SVGCarbonViewRightMargined"

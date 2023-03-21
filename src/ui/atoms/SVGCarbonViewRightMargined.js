@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export function SVGViewCarbon(props) {
+export function SVGCarbonViewRightMargined(props) {
   return (
     <Svg
       width="22"
@@ -23,5 +23,10 @@ export function SVGViewCarbon(props) {
 }
 
 const Svg = styled.svg`
+  min-width: 1.375rem;
+  max-width: 1.375rem;
+  height: 1.375rem;
+
+  margin-right: 1.25rem;
   ${(props) => props.Style}
 `;

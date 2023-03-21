@@ -1,4 +1,4 @@
-import { SVGViewCarbon } from "$/ui/atoms/SVGViewCarbon";
+import { SVGCarbonView } from "$/ui/atoms/SVGCarbonView";
 import styled from "@emotion/styled";
 import { Box, Grid, Typography } from "@mui/material";
 
@@ -28,7 +28,7 @@ import { Box, Grid, Typography } from "@mui/material";
 export function BoxTypographyPreview(props) {
   return (
     <_>
-      <SVGViewCarbon />
+      <SVGCarbonView />
       <Grid
         container
         sx={{

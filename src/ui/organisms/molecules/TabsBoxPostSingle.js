@@ -28,12 +28,9 @@ export function TabsBoxPostSingle() {
       container
       sx={{
         width: "100%",
-        height: "231px",
+        minHeight: "231px",
         boxShadow: "6px 7px 28px rgba(0, 0, 0, 0.07)",
         borderRadius: "10px",
-        [theme.breakpoints.down("md")]: {
-          height: "auto",
-        },
       }}
     >
       <Box
