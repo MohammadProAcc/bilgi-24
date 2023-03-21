@@ -1,4 +1,3 @@
-import { theme } from "$/utils";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import ShareIcon from "@mui/icons-material/Share";
@@ -12,17 +11,15 @@ import {
   styled,
   Typography,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
 import { BoxCarousel } from "./BoxCarousel";
 import {
-  BoxTypography,
-  Carousel,
-  Modal,
+  BoxTypography, Modal,
   SinglePostImagesCarousel,
-  TabsBoxPostSingle,
+  TabsBoxPostSingle
 } from "./molecules";
 
 export function PostSingle() {

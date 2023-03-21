@@ -3,6 +3,7 @@ import { Layout, CartBox, Flex } from "$/ui";
 import { Color } from "$/design";
 import { Button, Grid } from "@mui/material";
 import numeral from "numeral";
+import { theme } from "$/utils";
 
 export function CartPage() {
   return (
@@ -17,6 +18,11 @@ export function CartPage() {
           gap="25px"
           justifyContent="flex-start"
           alignItems="center"
+          sx={{
+            [theme.breakpoints.down("md")]: {
+              padding: "0 1rem",
+            },
+          }}
         >
           <CartBox />
           <CartBox />

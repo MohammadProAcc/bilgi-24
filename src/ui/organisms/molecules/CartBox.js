@@ -22,12 +22,33 @@ export function CartBox(props) {
       direction="row"
       sx={{
         width: `${!responsive ? "914px" : "100%"}`,
-        height:`${!responsive ? "79px" :"60px"}`,
+        height: `${!responsive ? "79px" : "60px"}`,
         boxShadow: "4px 4px 45px rgba(0, 0, 0, 0.1)",
         borderRadius: "5px",
-        padding: "9px 10px",
+        padding: "0.5625rem 1.875rem 0.5625rem 0.5625rem",
         alignItems: "center",
         justifyContent: "space-between",
+        ".details": {
+          display: "none",
+        },
+        [theme.breakpoints.down("md")]: {
+          ".text-desktop": {
+            display: "none",
+          },
+          ".MuiTypography-root": {
+            fontSize: "10px",
+          },
+          ".details": {
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+          },
+        },
+        [theme.breakpoints.up("md")]: {
+          ".text-mobile": {
+            display: "none",
+          },
+        },
       }}
     >
       <ContentModalContactInfo
@@ -35,19 +56,31 @@ export function CartBox(props) {
         heightImg={!responsive ? 62 : 40}
         srcIcon="/images/list-view-pic1.png"
         title="Apartment Best Location"
-        sxMain={{ width: "fit-content" }}
+        sxMain={{
+          width: "fit-content",
+          ".MuiGrid-root": {
+            gap: "1rem",
+          },
+        }}
       />
-      <Text>15 Days</Text>
-      <Text>Rea State / Residential / Rent</Text>
-      <Text>15,000$</Text>
-      <IconButton>
-        <DeleteOutlineOutlinedIcon
-          color="delete"
-          sx={{
-            width: `${!responsive ? "" : "14px"}`,
-            height: `${!responsive ? "" : "14px"}`,
-          }}
-        />
+
+      <Text className="text-desktop">15 Days</Text>
+      <Text className="text-desktop">Rea State / Residential / Rent</Text>
+      <Text className="text-desktop">15,000$</Text>
+
+      <div className="details">
+        <Text className="text-mobile">Rea State / Residential / Rent</Text>
+        <Text>15 Days</Text>
+        <Text className="text-desktop">Rea State / Residential / Rent</Text>
+        <Text>15,000$</Text>
+      </div>
+      <IconButton
+        sx={{
+          width: "18px",
+          height: "18px",
+        }}
+      >
+        <DeleteOutlineOutlinedIcon color="delete" />
       </IconButton>
     </Grid>
   );

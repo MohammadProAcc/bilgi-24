@@ -1,5 +1,4 @@
 export * from "./atoms";
-export * from "./Carousel";
 export * from "./CarouselCards";
 export * from "./CartBox";
 export * from "./CategoryCard";
