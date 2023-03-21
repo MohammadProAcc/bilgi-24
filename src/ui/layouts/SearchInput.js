@@ -17,11 +17,6 @@ export function SearchInput() {
 }
 
 const _ = styled(Box)`
-
-  @media ${BreakPoint.device.max.md} {
-    width: 100%;
-  }
-
   width: 32.875rem;
   height: 3rem;
 
@@ -49,5 +44,13 @@ const _ = styled(Box)`
         opacity: 0.5;
       }
     }
+  }
+
+  @media ${BreakPoint.device.max.md} {
+    width: 100%;
+  }
+
+  @media ${BreakPoint.device.min.md} and (max-width: 85rem) {
+    width: 15rem;
   }
 `;

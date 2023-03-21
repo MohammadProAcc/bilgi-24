@@ -1,5 +1,6 @@
 import { CreatePostContext } from "$/contexts";
 import { Color } from "$/design";
+import { Box } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Step from "@mui/material/Step";
 import StepConnector, {
@@ -101,27 +102,46 @@ export function CreatePostTimeLine() {
   const { step } = useContext(CreatePostContext);
 
   return (
-    <Stack
-      sx={{
-        alignSelf: "center",
-        maxWidth: "44.6875rem",
-        marginTop: "2.25rem",
-        marginBottom: "2.25rem",
-        width: "100%",
-      }}
-      spacing={4}
-    >
-      <Stepper
-        alternativeLabel
-        activeStep={step}
-        connector={<QontoConnector />}
+    <_>
+      <Stack
+        sx={{
+          alignSelf: "center",
+          maxWidth: "44.6875rem",
+          marginTop: "2.25rem",
+          marginBottom: "2.25rem",
+          width: "100%",
+        }}
+        spacing={4}
       >
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel StepIconComponent={QontoStepIcon}>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-    </Stack>
+        <Stepper
+          alternativeLabel
+          activeStep={step}
+          connector={<QontoConnector />}
+        >
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel StepIconComponent={QontoStepIcon}>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      </Stack>
+    </_>
   );
 }
+
+const _ = styled(Box)`
+  padding-top: 2rem;
+
+  display: flex;
+  justify-content: center;
+
+  .MuiStep-root {
+    position: relative;
+  }
+  .MuiStepLabel-labelContainer {
+    margin: 0;
+    position: absolute;
+    top: -2.5rem;
+    left: 0;
+  }
+`;

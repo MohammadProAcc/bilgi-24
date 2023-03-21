@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { BreadCrumbs, SelectInputGroup } from "$/ui";
 import { useForm } from "react-hook-form";
+import { BreakPoint } from "$/design";
 
 export function CreatePostBasicInfoStep() {
   const form = useForm({
@@ -75,6 +76,12 @@ const _ = styled.div`
     width: 300px;
     .MuiSelect-select {
       width: 100%;
+    }
+  }
+
+  @media ${BreakPoint.device.max.md} {
+    .divider {
+      padding: 1rem 0;
     }
   }
 `;

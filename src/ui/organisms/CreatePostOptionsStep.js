@@ -1,3 +1,4 @@
+import { BreakPoint } from "$/design";
 import { CheckboxInput, SegmentedInput } from "$/ui";
 import styled from "@emotion/styled";
 
@@ -55,6 +56,16 @@ const _ = styled.div`
       > * {
         flex: 1;
       }
+    }
+  }
+
+  @media ${BreakPoint.device.max.md} {
+    width: 100%;
+    margin-top: 2rem;
+
+    .checkboxes {
+      width: 100%;
+      transform: none;
     }
   }
 `;

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { TextareaGroup, UploadedImages, UploadPostAssets } from "$/ui";
 import { css } from "@emotion/react";
+import { BreakPoint } from "$/design";
 
 const UPLOADED_FILES_MOCK = [
   {
@@ -46,6 +47,9 @@ export function CreatePostDescriptionStep() {
         Style={css`
           max-width: 37.8125rem;
         `}
+        inputProps={{
+          placeholder:"Write Description..."
+        }}
       />
 
       <div className="divider" />
@@ -71,5 +75,9 @@ const _ = styled.div`
 
   .divider-2 {
     padding-top: 4.25rem;
+  }
+
+  @media ${BreakPoint.device.max.md} {
+    margin-top: 2.5rem;
   }
 `;

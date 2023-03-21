@@ -1,11 +1,27 @@
 import { CreatePostContext } from "$/contexts";
-import { Color } from "$/design";
+import { BreakPoint, Color } from "$/design";
 import styled from "@emotion/styled";
-import { Button } from "@mui/material";
+import { Button, useMediaQuery } from "@mui/material";
+import Link from "next/link";
 import { useContext } from "react";
 
 export function CreatePostStepNavigation() {
   const { step, setStep } = useContext(CreatePostContext);
+
+  const isMd = useMediaQuery(BreakPoint.device.min.md);
+
+  function navigate(to) {
+    if (to === "prev") {
+      setStep((curr) => curr - 1);
+    } else if (to === "next") {
+      setStep((curr) => curr + 1);
+    }
+    if (!isMd) {
+      window.scrollTo({
+        top: 0,
+      });
+    }
+  }
 
   return (
     <_>
@@ -14,18 +30,26 @@ export function CreatePostStepNavigation() {
         color="sub"
         className="prev"
         disabled={step === 0}
-        onClick={() => setStep((curr) => curr - 1)}
+        onClick={() => navigate("prev")}
       >
         Prev
       </Button>
-      <Button
-        variant="contained"
-        color="sub"
-        disabled={step === 4}
-        onClick={() => setStep((curr) => curr + 1)}
-      >
-        Next
-      </Button>
+      {/* FIXME: temp */}
+      {step === 4 ? (
+        <Link href="/preview-post">
+          <Button variant="contained" color="sub">
+            Next
+          </Button>
+        </Link>
+      ) : (
+        <Button
+          variant="contained"
+          color="sub"
+          onClick={() => navigate("next")}
+        >
+          Next
+        </Button>
+      )}
     </_>
   );
 }
@@ -39,6 +63,7 @@ const _ = styled.div`
   button {
     width: 6.5rem;
     height: 2.25rem;
+    /* color: ${Color.strokeDark}; */
 
     &.prev {
       color: ${Color.strokeDark};

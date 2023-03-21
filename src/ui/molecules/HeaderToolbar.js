@@ -63,4 +63,10 @@ const _ = styled.div`
     gap: 0.9375rem;
     padding-left: 2.75rem;
   }
+
+  @media ${BreakPoint.device.min.md} and (max-width: 1360px) {
+    .inner {
+      gap: 0.5rem;
+    }
+  }
 `;

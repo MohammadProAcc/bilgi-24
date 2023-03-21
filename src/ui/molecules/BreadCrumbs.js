@@ -1,3 +1,4 @@
+import { BreakPoint } from "$/design";
 import styled from "@emotion/styled";
 import { v4 } from "uuid";
 
@@ -14,7 +15,8 @@ export function BreadCrumbs(props) {
 const _ = styled.ul`
   height: 0.9375rem;
   display: flex;
-  gap: 2rem;
+  column-gap: 2rem;
+  row-gap: 0.5rem;
 
   li {
     font-size: 12px;
@@ -41,6 +43,14 @@ const _ = styled.ul`
 
     &:last-child {
       font-weight: 500;
+    }
+  }
+
+  @media ${BreakPoint.device.max.md} {
+    flex-wrap: wrap;
+
+    li {
+      white-space: nowrap;
     }
   }
 `;

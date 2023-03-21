@@ -1,3 +1,4 @@
+import { BreakPoint } from "$/design";
 import styled from "@emotion/styled";
 import { UploadInput } from "../atoms";
 
@@ -27,4 +28,8 @@ const _ = styled.div`
   display: flex;
   justify-content: center;
   gap: 2.75rem;
+
+  @media ${BreakPoint.device.max.md} {
+    flex-direction: column;
+  }
 `;

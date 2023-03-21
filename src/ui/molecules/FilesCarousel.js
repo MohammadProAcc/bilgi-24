@@ -1,5 +1,6 @@
-import { Color, Zindex } from "$/design";
+import { BreakPoint, Color, Zindex } from "$/design";
 import styled from "@emotion/styled";
+import { FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SVGCloseWhite, SVGPlay } from "../atoms";
 
@@ -7,10 +8,12 @@ export function FilesCarousel(props) {
   return (
     <_>
       <Swiper
-        slidesPerView={7.5}
+        slidesPerView="auto"
         spaceBetween={22}
         grabCursor={true}
         className="mySwiper"
+        modules={[FreeMode]}
+        freeMode
       >
         {props.files.map((file) => (
           <SwiperSlide>
@@ -36,8 +39,9 @@ const _ = styled.div`
   }
 
   .swiper-slide {
-    width: 7.25rem;
-    height: 7.125rem;
+    min-width: 7.25rem;
+    max-width: 7.25rem;
+    height: 7.25rem;
     border-radius: 0.3125rem;
 
     position: relative;
@@ -124,6 +128,17 @@ const _ = styled.div`
       line-height: 1.0625rem;
       letter-spacing: 0em;
       text-align: center;
+    }
+  }
+
+  @media ${BreakPoint.device.max.md} {
+    .swiper {
+      padding-bottom: 3rem;
+    }
+    
+    .swiper-slide {
+      min-width: 7.5rem;
+      max-width: 7.5rem;
     }
   }
 `;

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { InputGroup, LocationInput, SelectInputGroup } from "$/ui";
-import { css } from "@emotion/react";
+import { BreakPoint } from "$/design";
 
 export function CreatePostTitleStep() {
   return (
@@ -47,6 +47,18 @@ const _ = styled.div`
 
     > * {
       width: 100%;
+    }
+  }
+
+  @media ${BreakPoint.device.max.md} {
+    width: 100%;
+    margin-top: 2rem;
+
+    gap: 1.5rem;
+
+    .double-input {
+      flex-direction: column;
+      gap: 1.5rem;
     }
   }
 `;

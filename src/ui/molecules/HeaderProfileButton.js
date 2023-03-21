@@ -1,4 +1,4 @@
-import { Color, PrimaryOutlineButtonProps } from "$/design";
+import { BreakPoint, Color, PrimaryOutlineButtonProps } from "$/design";
 import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 import { useState } from "react";
@@ -20,7 +20,7 @@ export function HeaderProfileButton() {
         onClick={() => setShowMenu((o) => !o)}
       >
         <SVGProfile />
-        <span>Morteza Shirinzadeh</span>
+        <span className="text">Morteza Shirinzadeh</span>
       </Button>
       {showMenu && (
         <HeaderProfileMenu closeCallback={() => setShowMenu(false)} />
@@ -31,4 +31,17 @@ export function HeaderProfileButton() {
 
 const _ = styled.div`
   position: relative;
+  .MuiButtonBase-root {
+    height: 2.5rem;
+  }
+
+  @media ${BreakPoint.device.min.md} and (max-width: 67.8125rem) {
+    .MuiButtonBase-root {
+      height: 2rem;
+    }
+
+    .text {
+      display: none;
+    }
+  }
 `;

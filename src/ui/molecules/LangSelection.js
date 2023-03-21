@@ -26,6 +26,9 @@ export function LangSelection() {
 }
 
 const _ = styled.div`
+  display: flex;
+  align-items: center;
+
   .MuiInputBase-root {
     color: ${Color.strokeLight};
 

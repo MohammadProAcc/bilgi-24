@@ -24,3 +24,5 @@ export * from "./PreviewPostButtons";
 export * from "./EditProfileForm";
 export * from "./EditProfileFormButtons"
 export * from "./HeaderDrawer"
+export * from "./CreatePostTimeLineVertical"
+export * from "./QontoConnector"

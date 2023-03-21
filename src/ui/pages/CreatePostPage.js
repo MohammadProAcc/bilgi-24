@@ -1,5 +1,5 @@
 import { CreatePostContext } from "$/contexts";
-import { Color, Zindex } from "$/design";
+import { BreakPoint, Color, Zindex } from "$/design";
 import {
   CreatePostAdditionalInfoStep,
   CreatePostBasicInfoStep,
@@ -7,6 +7,7 @@ import {
   CreatePostOptionsStep,
   CreatePostStepNavigation,
   CreatePostTimeLine,
+  CreatePostTimeLineVertical,
   CreatePostTitleStep,
   Justifier,
   Layout,
@@ -14,10 +15,13 @@ import {
 } from "$/ui";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
 
 export function CreatePostPage() {
   const [step, setStep] = useState(4);
+
+  const isMd = useMediaQuery(BreakPoint.device.min.md);
 
   return (
     <Layout>
@@ -33,7 +37,11 @@ export function CreatePostPage() {
               purus viverra accumsan in nisl nisi Arcu cursus vitae congue
               mauris rhoncus aenean vel elit scelerisque.
             </p>
-            <CreatePostTimeLine />
+            {
+            isMd
+              ? <CreatePostTimeLine />
+              : <CreatePostTimeLineVertical />
+          }
             {step === 0 ? (
               <CreatePostBasicInfoStep />
             ) : step === 1 ? (
@@ -53,6 +61,9 @@ export function CreatePostPage() {
               top: 22.5rem;
               left: 0;
               z-index: ${Zindex.ellipseBackground};
+              @media ${BreakPoint.device.max.md} {
+                display: none;
+              }
             `}
           />
         </_>
@@ -87,5 +98,11 @@ const _ = styled.div`
     line-height: 1.6875rem;
     letter-spacing: 0.02em;
     text-align: justified;
+  }
+
+  @media ${BreakPoint.device.max.md} {
+    padding: 1rem;
+
+    background-image: none;
   }
 `;
