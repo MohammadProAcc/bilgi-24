@@ -1,4 +1,11 @@
-import { Button, Grid, MenuItem, Typography, useTheme } from "@mui/material";
+import {
+  Button,
+  Grid,
+  MenuItem,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import {
   CarouselCards,
   CustomSelect,
@@ -6,16 +13,19 @@ import {
   ListViewTabs,
   TabPanel,
   CategoryGridView,
+  FilterMobile,
 } from "$/ui/organisms/molecules";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useState } from "react";
 import { imageCard, imageListView } from "$/utils";
 import SwipeableViews from "react-swipeable-views";
+import Link from "next/link";
 
 const names = ["Newest", "oldest"];
 const city = ["Istanbul", "Ankara", "Konya"];
 export function ListViewCategory() {
   const theme = useTheme();
+  const responsive = useMediaQuery(theme.breakpoints.between("xs", "md"));
   const [value, setValue] = useState(0);
   const [age, setAge] = useState("");
   const handleChangeTab = (event, newValue) => {
@@ -37,6 +47,8 @@ export function ListViewCategory() {
       xl={8}
       lg={9}
       md={8}
+      sm={12}
+      xs={12}
     >
       <Grid
         id="header"
@@ -45,8 +57,10 @@ export function ListViewCategory() {
           direction: "row",
           justifyContent: "space-between",
           paddingRight: { xl: "180px", lg: "0", md: "0" },
+          alignItems: `${!responsive ? "" : "center"}`,
         }}
       >
+        {responsive ? <FilterMobile /> : <></>}
         <Grid
           container
           sx={{
@@ -54,10 +68,15 @@ export function ListViewCategory() {
             gap: "5px",
             flexDirection: "row",
             alignItems: "center",
+            paddingTop: `${!responsive ? 0 : 0}`,
           }}
         >
           <Typography
-            sx={{ color: "#1E1E1E", fontSize: "12px", fontWeight: 500 }}
+            sx={{
+              color: "#1E1E1E",
+              fontSize: `${!responsive ? "12px" : "9px"}`,
+              fontWeight: 500,
+            }}
           >
             Sort By :
           </Typography>
@@ -83,7 +102,12 @@ export function ListViewCategory() {
           <TabPanel value={value} index={0}>
             <Grid
               container
-              sx={{ gap: "32px", flexWrap: "wrap", padding: {xl:"0 113px 0 40px",lg:"0 0 0 40px",md:"0"} }}
+              sx={{
+                gap: `${!responsive ? "32px" : "18px"}`,
+                flexWrap: "wrap",
+                padding: { xl: "0 113px 0 40px", lg: "0 0 0 40px", md: "0" },
+                justifyContent: `${!responsive ? "" : "center"}`,
+              }}
             >
               {imageCard.map((item) => (
                 <CarouselCards
@@ -92,11 +116,16 @@ export function ListViewCategory() {
                   isShop={item.isShop}
                 />
               ))}
-              {/* <Cate goryGridView /> */}
+              {/* <CategoryGridView /> */}
             </Grid>
           </TabPanel>
           <TabPanel value={value} index={1}>
-            <Grid container gap="32px" flexWrap="wrap" padding="0 113px 0 40px">
+            <Grid
+              container
+              gap="32px"
+              flexWrap="wrap"
+              padding={!responsive ? "0 113px 0 40px" : "0"}
+            >
               {imageListView.map((item) => (
                 <CategoryListViewCard
                   key={item.id}

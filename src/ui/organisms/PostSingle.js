@@ -11,6 +11,8 @@ import {
   Link,
   styled,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
@@ -24,6 +26,8 @@ import {
 } from "./molecules";
 
 export function PostSingle() {
+  const theme = useTheme();
+  const responsive = useMediaQuery(theme.breakpoints.between("xs", "md"));
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -93,7 +97,12 @@ export function PostSingle() {
         gap: "55px",
       }}
     >
-      <Grid id="content" container direction="row">
+      <Grid
+        id="content"
+        container
+        gap={`${!responsive ? "0" : "100px"}`}
+        direction={`${!responsive ? "row" : "column"}`}
+      >
         <Grid
           id="left"
           container
@@ -257,7 +266,7 @@ export function PostSingle() {
           id="right"
           container
           direction="column"
-          alignItems="flex-end"
+          alignItems={`${!responsive ? "flex-end" : "center"}`}
           gap="22px"
           md={4}
           lg={4}

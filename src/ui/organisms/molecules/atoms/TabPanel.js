@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 export function TabPanel(props) {
   const { children, value, index, ...other } = props;
+  const theme = useTheme();
+  const responsive = useMediaQuery(theme.breakpoints.between("xs", "md"));
 
   return (
     <div
@@ -14,7 +16,7 @@ export function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ padding:"30px 12px" }}>
+        <Box sx={{ padding:`${!responsive ? "30px 12px" : "30px 0"}` }}>
           <Box>{children}</Box>
         </Box>
       )}

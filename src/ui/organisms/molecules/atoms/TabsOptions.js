@@ -1,6 +1,8 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 export function TabsOptions(props) {
+  const theme = useTheme();
+  const responsive = useMediaQuery(theme.breakpoints.between("xs", "md"));
   let disable = props.disable;
   return (
     <Grid
@@ -8,13 +10,13 @@ export function TabsOptions(props) {
       direction="row"
       alignItems="center"
       justifyContent="space-between"
-      padding="0 50px"
-      marginBottom="20px"
+      padding={`${!responsive ? "0 50px" : "0 35px"}`}
+      marginBottom={`${!responsive ? "20px" : "7px"}`}
     >
       {disable === "true" ? (
         <Typography
           sx={{
-            fontSize: "14px",
+            fontSize: `${!responsive ? "14px" : "7px"}`,
             fontWeight: 500,
             color: "#1E1E1E",
             opacity: 0.6,
@@ -24,7 +26,11 @@ export function TabsOptions(props) {
         </Typography>
       ) : (
         <Typography
-          sx={{ fontSize: "14px", fontWeight: 500, color: "#1E1E1E" }}
+          sx={{
+            fontSize: `${!responsive ? "14px" : "7px"}`,
+            fontWeight: 500,
+            color: "#1E1E1E",
+          }}
         >
           {props.text}
         </Typography>
@@ -32,8 +38,8 @@ export function TabsOptions(props) {
       {disable === "true" ? (
         <Box
           sx={{
-            width: "16px",
-            height: "16px",
+            width: `${!responsive ? "16px" : "8px"}`,
+            height: `${!responsive ? "16px" : "8px"}`,
             borderRadius: "2px",
             backgroundColor: "#F5B61A",
             opacity: 0.3,
@@ -42,8 +48,8 @@ export function TabsOptions(props) {
       ) : (
         <Box
           sx={{
-            width: "16px",
-            height: "16px",
+            width: `${!responsive ? "16px" : "8px"}`,
+            height: `${!responsive ? "16px" : "8px"}`,
             borderRadius: "2px",
             backgroundColor: "#F5B61A",
           }}

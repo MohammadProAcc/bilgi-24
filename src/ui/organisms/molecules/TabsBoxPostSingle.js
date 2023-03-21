@@ -1,4 +1,4 @@
-import { Box, Grid, Tab, Tabs, Typography, useTheme } from "@mui/material";
+import { Box, Grid, Tab, Tabs, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
@@ -7,6 +7,7 @@ import { TabsOptions } from "$/ui/organisms/molecules/atoms";
 
 export function TabsBoxPostSingle() {
   const theme = useTheme();
+  const responsive=useMediaQuery(theme.breakpoints.between("xs","md"));
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -33,21 +34,14 @@ export function TabsBoxPostSingle() {
         borderRadius: "10px",
       }}
     >
-      <Box
-        sx={{
-          bgcolor: "background.paper",
-          width: 1000,
-          [theme.breakpoints.down("md")]: {
-            width: "100%",
-          },
-        }}
-      >
-        <Box sx={{ width: "100%" }}>
+      <Box sx={{ bgcolor: "white", width:`${!responsive ? "100%" : "100%"}`,height:`${!responsive ? "" : "231px"}`}}>
+        <Box>
           <Tabs
             value={value}
             onChange={handleChange}
             textColor="inherit"
-            variant="fullWidth"
+            variant={`${!responsive ? "fullWidth" : "scrollable"}`}
+            // scrollButtons="auto"
             sx={{ "& .MuiTabs-indicator": { backgroundColor: "#F5B61A" } }}
           >
             <CustomTab label="Front Yard" {...a11yProps(0)} />

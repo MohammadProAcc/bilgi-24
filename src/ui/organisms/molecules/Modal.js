@@ -9,6 +9,8 @@ import {
   IconButton,
   styled,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import PropTypes from "prop-types";
 import { useState } from "react";
@@ -18,9 +20,12 @@ import Image from "next/image";
 import { ContentModalContactInfo } from "./atoms";
 
 export function Modal(props) {
+  const theme = useTheme();
+  const responsive = useMediaQuery(theme.breakpoints.between("xs", "md"));
   const CustomDialog = styled(Dialog)(({ theme }) => ({
     "& .MuiPaper-elevation":{
       borderRadius:"10px",
+      width:`${!responsive ? "" : "100%"}`,
     },
     "& .MuiDialogContent-root": {
       padding: theme.spacing(4),
@@ -37,7 +42,7 @@ export function Modal(props) {
         sx={{
           marginTop: "20px",
           alignSelf: "center",
-          fontSize: "18px",
+          fontSize: `${!responsive ? "18px" : "14px"}`,
           fontWeight: 500,
           color: "#1E1E1E",
         }}
@@ -78,32 +83,32 @@ export function Modal(props) {
         <DialogContent>
           <Grid container direction="column" gap="20px">
             <ContentModalContactInfo
-            widthImg={22}
-            heightImg={22}
+            widthImg={!responsive ? 22 : 12}
+            heightImg={!responsive ? 22 : 12}
             srcIcon="/images/user-pic.svg"
               title="Username:"
               desc="Morteza Shirinzadeh"
             />
             <Divider />
             <ContentModalContactInfo
-            widthImg={22}
-            heightImg={22}
+            widthImg={!responsive ? 22 : 12}
+            heightImg={!responsive ? 22 : 12}
             srcIcon="/images/mail-pic.svg"
               title="Mail:"
               desc="itsmorteza.sh@gmail.com"
             />
             <Divider />
             <ContentModalContactInfo
-            widthImg={22}
-            heightImg={22}
+            widthImg={!responsive ? 22 : 12}
+            heightImg={!responsive ? 22 : 12}
             srcIcon="/images/whatsapp-pic.svg"
               title="Whatsapp:"
               desc="+98 921 008 5374"
             />
             <Divider />
             <ContentModalContactInfo
-            widthImg={22}
-            heightImg={22}
+            widthImg={!responsive ? 22 : 12}
+            heightImg={!responsive ? 22 : 12}
             srcIcon="/images/call-pic.svg"
               title="Call:"
               desc="+98 921 008 5374"

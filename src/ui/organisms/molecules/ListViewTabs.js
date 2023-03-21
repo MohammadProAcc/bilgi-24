@@ -1,13 +1,15 @@
-import { Box, styled, Tab, Tabs } from "@mui/material";
+import { Box, styled, Tab, Tabs, useMediaQuery, useTheme } from "@mui/material";
 import { BsList } from "react-icons/bs";
 import { GrAppsRounded } from "react-icons/gr";
 
 export function ListViewTabs(props) {
+  const theme = useTheme();
+  const responsive = useMediaQuery(theme.breakpoints.between("xs", "md"));
   const CustomTab = styled(Tab)({
-    marginRight: "10px",
-    padding: "8px",
-    minWidth: "30px",
-    minHeight: "30px",
+    marginRight: `${!responsive ? "10px" : "5px"}`,
+    padding: `${!responsive ? "8px" : "4px"}`,
+    minWidth: `${!responsive ? "30px" : "15px"}`,
+    minHeight: `${!responsive ? "30px" : "15px"}`,
     "&:hover": {
       backgroundColor: "#F5B61A",
       borderRadius: "5px",
@@ -37,12 +39,19 @@ export function ListViewTabs(props) {
           textColor="inherit"
           variant="fullWidth"
           indicatorColor={""}
-          sx={{ "& .MuiTabs-indicator": { backgroundColor: "none" } }}
+          sx={{
+            minHeight: 0,
+            "& .MuiTabs-indicator": { backgroundColor: "none" },
+          }}
         >
           <CustomTab
             icon={
               <GrAppsRounded
-                style={{ width: "20px", height: "20px", color: "#1E1E1E" }}
+                style={{
+                  width: `${!responsive ? "20px" : "12px"}`,
+                  height: `${!responsive ? "20px" : "12px"}`,
+                  color: "#1E1E1E",
+                }}
               />
             }
             {...a11yProps(0)}
@@ -51,8 +60,8 @@ export function ListViewTabs(props) {
             icon={
               <BsList
                 style={{
-                  width: "24px",
-                  height: "22px",
+                  width: `${!responsive ? "24px" : "16px"}`,
+                  height: `${!responsive ? "22px" : "14px"}`,
                 }}
               />
             }

@@ -1,9 +1,18 @@
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Grid,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { CarouselCards } from "$/ui/organisms";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // FIXME:
 export function BoxCarousel(props) {
+  const theme = useTheme();
+  const responsive = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid
       container
@@ -12,14 +21,18 @@ export function BoxCarousel(props) {
     >
       <Grid container direction="row" gap="10px" alignItems="center">
         <Typography
-          sx={{ color: "#1E1E1E", fontSize: "18px", fontWeight: 400 }}
+          sx={{
+            color: "#1E1E1E",
+            fontSize: `${!responsive ? "18px" : "12px"}`,
+            fontWeight: 400,
+          }}
         >
           {props.carouselTitle}
         </Typography>
         <Divider
           sx={{
             height: "1px",
-            width: "75%",
+            width: `${!responsive ? "75%" : "65%"}`,
             borderColor: "#1E1E1E",
             opacity: 0.2,
             ...props.sxDivider,
@@ -47,8 +60,9 @@ export function BoxCarousel(props) {
         }}
       >
         <Swiper
-          slidesPerView={3.5}
+          slidesPerView={!responsive ? 3.5 : 1.1}
           spaceBetween={10}
+          centeredSlides={!responsive ? false : true}
           grabCursor={true}
           className="mySwiper"
         >

@@ -1,3 +1,8 @@
+import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Navigation, Thumbs, Pagination } from "swiper";
+import { Box } from "@mui/material";
+import styled from "@emotion/styled";
 import { Zindex } from "$/design";
 import { SVGCloseSub } from "$/ui/atoms";
 import styled from "@emotion/styled";
@@ -44,11 +49,13 @@ const CAROUSEL_FILES_MOCK = [
 export function Carousel(props) {
   const [swiper, setSwiper] = useState(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const theme = useTheme();
+  const responsive = useMediaQuery(theme.breakpoints.between("xs", "md"));
 
   return (
     <Box
       sx={{
-        width: "370px",
+        width: `${!responsive ? "370px" : "100%"}`,
         height: "fit-content",
         "& .swiper-slide": {
           aspectRatio: "1/1",
@@ -89,15 +96,17 @@ export function Carousel(props) {
         "& .swiper-button-prev": {
           top: "auto",
           bottom: "0.75rem",
-          left: "8.75rem",
+          left: "8rem",
           zIndex: Zindex.max - 1,
         },
         "& .swiper-button-next": {
           top: "auto",
           bottom: "0.75rem",
-          right: "8.75rem",
+          right: "8rem",
           zIndex: Zindex.max - 1,
         },
+        padding: `${!responsive ? "" : "0"}`,
+        ...props.sxBox,
       }}
     >
       <Swiper
@@ -115,7 +124,7 @@ export function Carousel(props) {
         }}
         spaceBetween={10}
         navigation={true}
-        thumbs={{ swiper: thumbsSwiper }}
+        thumbs={{swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs, Pagination]}
         className="mySwiper2"
       >
@@ -142,8 +151,6 @@ export function Carousel(props) {
             )}
 
             <Image src={image.file} onClick={() => swiper?.slideTo(index)} />
-
-            <SVGCloseSub />
           </SwiperSlide>
         ))}
       </Swiper>

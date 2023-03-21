@@ -8,6 +8,7 @@ import {
   Tab,
   Tabs,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import { useState } from "react";
@@ -27,6 +28,7 @@ import {
 export function Dashboard() {
   const [value, setValue] = useState(0);
   const theme = useTheme();
+  const responsive = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleChangeIndex = (index) => {
     setValue(index);
@@ -40,7 +42,11 @@ export function Dashboard() {
     fontWeight: 700,
   });
   return (
-    <Grid container direction="row" sx={{ padding: "0 110px" }}>
+    <Grid
+      container
+      direction="row"
+      sx={{ padding: `${!responsive ? "0 110px" : "0 0"}` }}
+    >
       <Grid
         container
         direction="column"
@@ -52,7 +58,7 @@ export function Dashboard() {
         <Typography
           sx={{
             backgroundColor: "#C5DCFA",
-            width: "fit-content",
+            width: `${!responsive ? "fit-content" : "100%"}`,
             padding: "12px 60px 12px 24px",
             fontSize: "16px",
             fontWeight: 700,
@@ -68,12 +74,13 @@ export function Dashboard() {
             bgcolor: "background.paper",
             display: "flex",
             height: "fit-content",
-            width: "fit-content",
+            width: `${!responsive ? "fit-content" : "100%"}`,
           }}
         >
           <Tabs
-            orientation="vertical"
-            variant="standard"
+            orientation={`${!responsive ? "vertical" : "horizontal"}`}
+            variant={`${!responsive ? "standard" : "scrollable"}`}
+            scrollButtons="auto"
             value={value}
             onChange={handleChange}
             aria-label="Vertical tabs example"
@@ -94,7 +101,13 @@ export function Dashboard() {
           </Tabs>
         </Box>
       </Grid>
-      <Grid container xl={9.5} lg={9.5} md={9.5}>
+      <Grid
+        container
+        justifyContent={!responsive ? "" : "center"}
+        xl={9.5}
+        lg={9.5}
+        md={9.5}
+      >
         <SwipeableViews
           axis={theme.direction === "rtl" ? "x-reverse" : "x"}
           index={value}
@@ -115,7 +128,11 @@ export function Dashboard() {
             </Grid>
           </TabPanel>
           <TabPanel value={value} index={2}>
-            <Grid container direction="row" gap="60px">
+            <Grid
+              container
+              direction={`${!responsive ? "row" : "column"}`}
+              gap="60px"
+            >
               <Grid container direction="column" gap="12px" xl lg md>
                 <ContactBox />
                 <ContactBox />
@@ -126,7 +143,7 @@ export function Dashboard() {
               </Grid>
               <Grid container xl lg md>
                 <Box
-                  width="582px"
+                  width={`${!responsive ? "582px" : "100%"}`}
                   height="auto"
                   sx={{
                     border: "4px solid rgba(30,30,30,0.1)",

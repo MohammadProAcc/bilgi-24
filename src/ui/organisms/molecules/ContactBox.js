@@ -1,14 +1,16 @@
-import { Divider, Grid, Typography } from "@mui/material";
+import { Divider, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { ContentModalContactInfo } from "./atoms";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 
 export function ContactBox() {
+  const theme = useTheme();
+  const responsive = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Grid container direction="column" gap="10px">
       <Grid
         container
         direction="column"
-        sx={{ width: "263px", height: "65px", gap: "10px" ,cursor:"pointer"}}
+        sx={{ width: `${!responsive ? "263px" : "100%"}`, height: "65px", gap: "10px" ,cursor:"pointer"}}
       >
         <Grid
           container
