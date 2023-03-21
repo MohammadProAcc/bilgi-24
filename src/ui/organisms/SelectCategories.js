@@ -15,6 +15,7 @@ export function SelectCategories() {
   const responsive = useMediaQuery(theme.breakpoints.down("md"));
   const responsiveImage = useMediaQuery("max-width:340px");
   const Container = styled(Grid)(({ theme }) => ({
+    marginTop: "2rem",
     gap: "40px",
     padding: "0 74px",
     [theme.breakpoints.between("xs", "md")]: {

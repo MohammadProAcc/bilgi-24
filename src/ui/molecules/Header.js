@@ -37,7 +37,7 @@ export function Header(props) {
 
         <HeaderExtension active={isMd && activeExtension} headerMode={mode} />
 
-        {activeExtension && (
+        {isMd && activeExtension && (
           <>
             <SVGEllipse1
               Style={css`
