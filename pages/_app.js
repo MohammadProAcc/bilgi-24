@@ -9,6 +9,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/thumbs";
+import "react-image-gallery/styles/css/image-gallery.css";
 import "../styles/global.css";
 
 // Client-side cache, shared for the whole session of the user in the browser.

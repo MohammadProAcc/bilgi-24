@@ -12,11 +12,10 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import { SVGViewCarbon } from "../atoms/SVGViewCarbon";
-import { BoxCarousel } from "./BoxCarousel";
 import {
   BoxTypographyPreview,
   Carousel,
-  Modal,
+  PreviewPostImagesCarousel,
   TabsBoxPostSingle,
 } from "./molecules";
 import { PreviewPostButtons } from "./PreviewPostButtons";
@@ -209,14 +208,14 @@ export function PreviewPost() {
                   min-width: 1.375rem;
                 `}
               />
-              <p>
+              <span>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua
                 Egestas purus viverra accumsan in nisl nisi Arcu cursus vitae
                 congue mauris rhoncus aenean vel elit scelerisque purus viverra
                 accumsan in nisl nisi Arcu cursus vitae congue mauris rhoncus
                 aenean vel elit nisi Arcu cursus scelerisque.
-              </p>
+              </span>
             </Typography>
           </Box>
           <Grid container direction="row">
@@ -250,7 +249,7 @@ export function PreviewPost() {
           >
             Ad No 1215622
           </Typography>
-          <Carousel />
+          <PreviewPostImagesCarousel />
           <Box>
             <Image
               width={370}

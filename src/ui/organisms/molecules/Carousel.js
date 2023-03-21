@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs, Pagination } from "swiper";
-import { Box } from "@mui/material";
-import styled from "@emotion/styled";
 import { Zindex } from "$/design";
-import { useNonInitialEffect } from "$/hooks";
 import { SVGCloseSub } from "$/ui/atoms";
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+import { useState } from "react";
+import { FreeMode, Navigation, Pagination, Thumbs } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const CAROUSEL_FILES_MOCK = [
   {
@@ -116,7 +115,7 @@ export function Carousel(props) {
         }}
         spaceBetween={10}
         navigation={true}
-        thumbs={{swiper: thumbsSwiper }}
+        thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs, Pagination]}
         className="mySwiper2"
       >

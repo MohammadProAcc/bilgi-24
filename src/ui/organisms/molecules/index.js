@@ -19,3 +19,4 @@ export * from "./PostTypeCard";
 export * from "./SelectInputGroup";
 export * from "./TabsBoxPostSingle";
 export * from "./TextareaGroup";
+export * from "./PreviewPostImagesCarousel"
