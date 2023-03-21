@@ -1,10 +1,14 @@
 import { BreakPoint } from "$/design";
 import { Footer, Header } from "$/ui";
 import styled from "@emotion/styled";
+import Head from "next/head";
 
 export function Layout(props) {
   return (
     <>
+      <Head>
+        <title>Bilgi 24</title>
+      </Head>
       <Header headerMode={props.headerMode} authorized={props.authorized} />
       <Main>{props.children}</Main>
       <Footer />
