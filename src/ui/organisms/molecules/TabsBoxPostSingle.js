@@ -31,10 +31,21 @@ export function TabsBoxPostSingle() {
         height: "231px",
         boxShadow: "6px 7px 28px rgba(0, 0, 0, 0.07)",
         borderRadius: "10px",
+        [theme.breakpoints.down("md")]: {
+          height: "auto",
+        },
       }}
     >
-      <Box sx={{ bgcolor: "background.paper", width: 1000 }}>
-        <Box>
+      <Box
+        sx={{
+          bgcolor: "background.paper",
+          width: 1000,
+          [theme.breakpoints.down("md")]: {
+            width: "100%",
+          },
+        }}
+      >
+        <Box sx={{ width: "100%" }}>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -60,7 +71,7 @@ export function TabsBoxPostSingle() {
               <Grid container direction="column" xl>
                 <TabsOptions text="Lift (Elevator)" disable="true" />
                 <TabsOptions text="Labi" />
-                <TabsOptions text="Lift (Elevator)" disable="true"/>
+                <TabsOptions text="Lift (Elevator)" disable="true" />
               </Grid>
               <Grid container direction="column" xl>
                 <TabsOptions text="Parking" />
@@ -113,7 +124,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ padding:"30px 12px" }}>
+        <Box sx={{ padding: "30px 12px" }}>
           <Box>{children}</Box>
         </Box>
       )}

@@ -1,3 +1,4 @@
+import { theme } from "$/utils";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import ShareIcon from "@mui/icons-material/Share";
@@ -14,7 +15,13 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import { BoxCarousel } from "./BoxCarousel";
-import { BoxTypography, Carousel, Modal, TabsBoxPostSingle } from "./molecules";
+import {
+  BoxTypography,
+  Carousel,
+  Modal,
+  SinglePostImagesCarousel,
+  TabsBoxPostSingle,
+} from "./molecules";
 
 export function PostSingle() {
   const [open, setOpen] = useState(false);
@@ -101,6 +108,10 @@ export function PostSingle() {
               "& .MuiBreadcrumbs-separator": {
                 marginLeft: "0",
                 marginRight: "0",
+              },
+              "& li": {
+                display: "flex",
+                alignItems: "center",
               },
             }}
             separator={<NavigateNextIcon fontSize="10px" />}
@@ -192,6 +203,39 @@ export function PostSingle() {
               elit nisi Arcu cursus scelerisque.
             </Typography>
           </Box>
+          {/* Mobile */}
+          <Grid
+            id="right"
+            container
+            direction="column"
+            alignItems="flex-end"
+            gap="22px"
+            md={4}
+            lg={4}
+            xl={4}
+            sx={{
+              marginTop: "1rem",
+              alignItems: "center",
+              [theme.breakpoints.up("md")]: {
+                display: "none",
+              },
+            }}
+          >
+            <Typography
+              sx={{ fontSize: "12px", fontWeight: 400, color: "#1E1E1E" }}
+            >
+              Ad No 1215622
+            </Typography>
+            <SinglePostImagesCarousel />
+            <Box>
+              <Image
+                width={370}
+                height={190}
+                alt="map-pic"
+                src="/images/map-pic.png"
+              />
+            </Box>
+          </Grid>
           <Grid container direction="row">
             <Grid container direction="column" padding="10px" gap="25px" xl>
               <BoxTypography text="M2 (groos)" number="105" />
@@ -208,6 +252,7 @@ export function PostSingle() {
           </Grid>
           <TabsBoxPostSingle />
         </Grid>
+        {/* Desktop */}
         <Grid
           id="right"
           container
@@ -217,13 +262,20 @@ export function PostSingle() {
           md={4}
           lg={4}
           xl={4}
+          sx={{
+            [theme.breakpoints.down("md")]: {
+              display: "none",
+              marginTop: "1rem",
+              alignItems: "center",
+            },
+          }}
         >
           <Typography
             sx={{ fontSize: "12px", fontWeight: 400, color: "#1E1E1E" }}
           >
             Ad No 1215622
           </Typography>
-          <Carousel />
+          <SinglePostImagesCarousel />
           <Box>
             <Image
               width={370}
