@@ -1,3 +1,4 @@
+import { BreakPoint } from "$/design";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { ShadowedImage, SVGCamera } from "../atoms";
@@ -31,7 +32,7 @@ export function EditProfileForm() {
         </ShadowedImage>
 
         <div className="edit-info">
-          <div className="double-input">
+          <div className="double-input column">
             <InputGroup
               label="Name"
               inputProps={{ value: "Morteza Shirinzadeh", color: "sub" }}
@@ -44,7 +45,7 @@ export function EditProfileForm() {
               icon="/images/edit-sub.svg"
             />
           </div>
-          <div className="double-input">
+          <div className="double-input desktop">
             <InputGroup
               label="Phone Number"
               inputProps={{
@@ -68,27 +69,54 @@ export function EditProfileForm() {
         </div>
       </div>
       <div className="body">
-        <InputGroup
-          Style={css`
-            min-width: 21.25rem;
-            max-width: 21.25rem;
-            .form-group-input {
-              input {
-                padding-right: 0.875rem;
+        <div className="double-input column mobile">
+          <InputGroup
+            label="Phone Number"
+            inputProps={{
+              value: "+98 921 008 5374",
+              color: "sub",
+              type: "tel",
+            }}
+            icon="/images/edit-sub.svg"
+          />
+
+          <InputGroup
+            label="Fixed Number"
+            inputProps={{
+              value: "+98 921 008 5374",
+              color: "sub",
+              type: "tel",
+            }}
+            icon="/images/edit-sub.svg"
+          />
+        </div>
+        <div className="input-bar">
+          <InputGroup
+            Style={css`
+              min-width: 21.25rem;
+              max-width: 21.25rem;
+              .form-group-input {
+                input {
+                  padding-right: 0.875rem;
+                }
               }
-            }
-          `}
-          label="Email Address"
-          inputProps={{
-            value: "mortezashirinzadehbusiness@gmail.com",
-            color: "sub",
-            type: "email",
-            style: { fontSize: "0.875rem", fontWeight: "300", padding: 0 },
-          }}
-          icon=""
-        />
-        <SelectInputGroup label="Country" items={["Turkey"]} />
-        <SelectInputGroup label="City" items={["Istanbul"]} />
+
+              @media ${BreakPoint.device.max.md} {
+                max-width: 100%;
+              }
+            `}
+            label="Email Address"
+            inputProps={{
+              value: "mortezashirinzadehbusiness@gmail.com",
+              color: "sub",
+              type: "email",
+              style: { fontSize: "0.875rem", fontWeight: "300", padding: 0 },
+            }}
+            icon=""
+          />
+          <SelectInputGroup label="Country" items={["Turkey"]} />
+          <SelectInputGroup label="City" items={["Istanbul"]} />
+        </div>
       </div>
 
       <EditProfileFormButtons />
@@ -120,8 +148,40 @@ const _ = styled.div`
   }
 
   .body {
-    margin-top: 1.6875rem;
+    width: 100%;
     display: flex;
-    gap: 1.6875rem;
+    flex-direction: column;
+
+    .input-bar {
+      margin-top: 1.6875rem;
+      display: flex;
+      gap: 1.6875rem;
+    }
+  }
+
+  @media ${BreakPoint.device.max.md} {
+    .body {
+      margin-top: 1rem;
+
+      .input-bar {
+        flex-direction: column;
+      }
+    }
+
+    .desktop {
+      display: none !important;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  @media ${BreakPoint.device.min.md} {
+    .mobile {
+      display: none !important;
+    }
   }
 `;
