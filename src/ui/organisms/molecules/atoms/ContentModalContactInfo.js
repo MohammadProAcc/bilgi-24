@@ -1,4 +1,10 @@
-import { Grid, styled, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Grid,
+  styled,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import Image from "next/image";
 
 export function ContentModalContactInfo(props) {
@@ -11,16 +17,31 @@ export function ContentModalContactInfo(props) {
     ...props.sxText,
   });
   return (
-    <Grid container justifyContent="space-between" direction="row" width={`${!responsive ? "473px" : "100%"}`} sx={{...props.sxMain}}>
-      <Grid container direction="row" gap={!responsive ? "8px" : "2px"} alignItems="center" width="fit-content" xl md lg>
+    <Grid
+      container
+      justifyContent="space-between"
+      direction="row"
+      width={`${!responsive ? "473px" : "100%"}`}
+      sx={{ ...props.sxMain }}
+    >
+      <Grid
+        container
+        direction="row"
+        gap={!responsive ? "8px" : "2px"}
+        alignItems="center"
+        width="fit-content"
+        xl
+        md
+        lg
+      >
         <Image
           width={props.widthImg}
           height={props.heightImg}
           alt="icon"
           src={props.srcIcon}
-          style={{borderRadius:"5px"}}
+          style={{ borderRadius: "5px" }}
         />
-        <Text>{props.title}</Text>
+        <Text className="text-desktop">{props.title}</Text>
       </Grid>
       <Text xl md lg>
         {props.desc}

@@ -11,18 +11,20 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 
 export function CartBox(props) {
   const theme = useTheme();
-  const responsive = useMediaQuery(theme.breakpoints.down("md"));
+  const isMd = useMediaQuery(theme.breakpoints.down("md"));
   const Text = styled(Typography)({
-    fontSize: `${!responsive ? "14px" : "7px"}`,
+    fontSize: `${!isMd ? "14px" : "7px"}`,
     fontWeight: 400,
   });
   return (
     <Grid
       container
-      direction="row"
+      direction={isMd ? "column" : "row"}
+      flexWrap="nowrap"
+      gap={isMd ? "0.5rem" : ""}
       sx={{
-        width: `${!responsive ? "914px" : "100%"}`,
-        height: `${!responsive ? "79px" : "60px"}`,
+        width: `${!isMd ? "914px" : "100%"}`,
+        height: `${!isMd ? "79px" : "auto"}`,
         boxShadow: "4px 4px 45px rgba(0, 0, 0, 0.1)",
         borderRadius: "5px",
         padding: "0.5625rem 1.875rem 0.5625rem 0.5625rem",
@@ -32,6 +34,8 @@ export function CartBox(props) {
           display: "none",
         },
         [theme.breakpoints.down("md")]: {
+          paddingRight: "0.5625rem",
+          alignItems: "flex-start",
           ".text-desktop": {
             display: "none",
           },
@@ -52,8 +56,8 @@ export function CartBox(props) {
       }}
     >
       <ContentModalContactInfo
-        widthImg={!responsive ? 62 : 40}
-        heightImg={!responsive ? 62 : 40}
+        widthImg={!isMd ? 62 : 40}
+        heightImg={!isMd ? 62 : 40}
         srcIcon="/images/list-view-pic1.png"
         title="Apartment Best Location"
         sxMain={{
@@ -69,6 +73,7 @@ export function CartBox(props) {
       <Text className="text-desktop">15,000$</Text>
 
       <div className="details">
+        <Text className="text-mobile">Apartment Best Location</Text>
         <Text className="text-mobile">Rea State / Residential / Rent</Text>
         <Text>15 Days</Text>
         <Text className="text-desktop">Rea State / Residential / Rent</Text>
@@ -78,6 +83,9 @@ export function CartBox(props) {
         sx={{
           width: "18px",
           height: "18px",
+          [theme.breakpoints.down("md")]: {
+            alignSelf: "flex-end",
+          },
         }}
       >
         <DeleteOutlineOutlinedIcon color="delete" />

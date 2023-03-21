@@ -192,9 +192,18 @@ export function Dashboard() {
             <Grid
               container
               direction="column"
-              sx={{ height: "530px", justifyContent: "space-between" }}
+              sx={{
+                height: "530px",
+                justifyContent: "space-between",
+              }}
             >
-              <Grid container direction="column" gap="25px">
+              <Grid
+                container
+                direction="column"
+                gap="25px"
+                padding="0 2rem"
+                sx={{ width: "100%" }}
+              >
                 <CartBox />
                 <CartBox />
               </Grid>
