@@ -4,9 +4,11 @@ import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import MicIcon from "@mui/icons-material/Mic";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
-import { Button, Grid, styled } from "@mui/material";
+import { Button, Grid, styled, useMediaQuery, useTheme } from "@mui/material";
 
 export const CustomTextfieldChat = () => {
+  const theme=useTheme()
+  const responsive=useMediaQuery(theme.breakpoints.between("xs","md"))
   const CustomIconButton = styled(IconButton)({
     "&:hover": {
       backgroundColor: "inherit",
@@ -28,7 +30,7 @@ export const CustomTextfieldChat = () => {
         <MicIcon sx={{ width: "26px", height: "26px", color: "#1E1E1E" }} />
       </CustomIconButton>
       <InputBase
-        sx={{ ml: 1, flex: 1 }}
+        sx={{ ml: 1, flex: 1,input:{"&::placeholder":{fontSize:`${!responsive ? "" : "8px"}`}} }}
         placeholder="Type Something..."
         inputProps={{ "aria-label": "input text" }}
       />
