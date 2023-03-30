@@ -116,7 +116,7 @@ const _ = styled.div`
 
     img {
       width: 100%;
-      height: 100%;
+      min-height: 100%;
       border-radius: 0.3125rem;
 
       transition-duration: 100ms;

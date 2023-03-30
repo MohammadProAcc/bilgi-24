@@ -19,7 +19,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
 
 export function CreatePostPage() {
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(0);
 
   const isMd = useMediaQuery(BreakPoint.device.min.md);
 
