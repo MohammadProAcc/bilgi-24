@@ -1,25 +1,17 @@
 import {
-  Button,
-  Grid,
-  MenuItem,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import {
   CarouselCards,
-  CustomSelect,
   CategoryListViewCard,
+  CustomSelect,
+  FilterMobile,
   ListViewTabs,
   TabPanel,
-  CategoryGridView,
-  FilterMobile,
 } from "$/ui/organisms/molecules";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { useState } from "react";
 import { imageCard, imageListView } from "$/utils";
+import styled from "@emotion/styled";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
-import Link from "next/link";
 
 const names = ["Newest", "oldest"];
 const city = ["Istanbul", "Ankara", "Konya"];
@@ -39,7 +31,7 @@ export function ListViewCategory() {
     setValue(index);
   };
   return (
-    <Grid
+    <$
       id="main"
       container
       direction="column"
@@ -137,6 +129,10 @@ export function ListViewCategory() {
           </TabPanel>
         </SwipeableViews>
       </Grid>
-    </Grid>
+    </$>
   );
 }
+
+const $ = styled(Grid)`
+  /* css-in-js goes here */
+`;

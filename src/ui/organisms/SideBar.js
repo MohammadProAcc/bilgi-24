@@ -7,7 +7,7 @@ import {
   Grid,
   InputBase,
   InputLabel,
-  styled,
+  styled as styles,
   Typography,
   useMediaQuery,
   useTheme,
@@ -16,42 +16,16 @@ import { CustomSelect, FilterMobile } from "./molecules";
 
 const namesPrice = ["$", "$"];
 const names = ["gross", "gross"];
+
 export function SideBar() {
   const theme = useTheme();
   const responsive = useMediaQuery(theme.breakpoints.between("xs", "md"));
-  const CustomFormControlLabel = styled(FormControlLabel)({
-    fontSize: "12px",
-    fontWeight: 400,
-    color: "#1E1E1E",
-  });
-  const Label = styled(InputLabel)({
-    fontSize: "18px",
-    fontWeight: 400,
-    color: "#1E1E1E",
-  });
-  const Input = styled(InputBase)(({ theme }) => ({
-    "label + &": {
-      marginTop: theme.spacing(3),
-    },
-    "& .MuiInputBase-input": {
-      borderRadius: 4,
-      position: "relative",
-      backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
-      border: "1px solid #ced4da",
-      fontSize: 16,
-      width: "auto",
-      padding: "10px 12px",
-      transition: theme.transitions.create([
-        "border-color",
-        "background-color",
-        "box-shadow",
-      ]),
-    },
-  }));
+
   return (
     <>
       {!responsive ? (
         <Grid id="main" container direction="row" xl={2} lg={2.5} md={3}>
+          {/* Could Become an atom */}
           <Grid
             id="content"
             container
@@ -67,9 +41,7 @@ export function SideBar() {
               gap="10px"
               width="fit-content"
             >
-              <Typography
-                sx={{ fontSize: "16px", fontWeight: 500, color: "#1E1E1E" }}
-              >
+              <Typography sx={inlineStyles.typoGraphyStyles.base}>
                 Real State
               </Typography>
               <FormGroup>
@@ -108,18 +80,12 @@ export function SideBar() {
                 alignItems: "center",
               }}
             >
-              <Typography
-                sx={{ color: "#1E1E1E", fontSize: "14px", fontWeight: 500 }}
-              >
+              <Typography sx={inlineStyles.typoGraphyStyles.light}>
                 Price
               </Typography>
               <CustomSelect
                 name={namesPrice}
-                sxSelect={{
-                  ".MuiOutlinedInput-notchedOutline": {
-                    borderColor: "none",
-                  },
-                }}
+                sxSelect={sx.customSelect.sxSelect}
               />
             </Grid>
             <Grid
@@ -140,6 +106,7 @@ export function SideBar() {
             </Grid>
             <Grid
               container
+              // Should go to inlineStyles
               sx={{
                 width: "fit-content",
                 gap: "5px",
@@ -147,9 +114,7 @@ export function SideBar() {
                 alignItems: "center",
               }}
             >
-              <Typography
-                sx={{ color: "#1E1E1E", fontSize: "14px", fontWeight: 500 }}
-              >
+              <Typography sx={inlineStyles.typoGraphyStyles.light}>
                 Metrage
               </Typography>
               <CustomSelect
@@ -180,9 +145,67 @@ export function SideBar() {
           </Grid>
           <Divider sx={{ borderWidth: "1px", marginTop: "107px" }} xl />
         </Grid>
-      ) : (<></>
+      ) : (
+        <></>
         // <FilterMobile/>
       )}
     </>
   );
 }
+
+const CustomFormControlLabel = styles(FormControlLabel)({
+  fontSize: "12px",
+  fontWeight: 400,
+  color: "#1E1E1E",
+});
+
+const Label = styles(InputLabel)({
+  fontSize: "18px",
+  fontWeight: 400,
+  color: "#1E1E1E",
+});
+
+const Input = styles(InputBase)(({ theme }) => ({
+  "label + &": {
+    marginTop: theme.spacing(3),
+  },
+  "& .MuiInputBase-input": {
+    borderRadius: 4,
+    position: "relative",
+    backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
+    border: "1px solid #ced4da",
+    fontSize: 16,
+    width: "auto",
+    padding: "10px 12px",
+    transition: theme.transitions.create([
+      "border-color",
+      "background-color",
+      "box-shadow",
+    ]),
+  },
+}));
+
+const inlineStyles = {
+  typoGraphyStyles: {
+    base: {
+      fontSize: "16px",
+      fontWeight: 500,
+      color: "#1E1E1E",
+    },
+    light: {
+      color: "#1E1E1E",
+      fontSize: "14px",
+      fontWeight: 500,
+    },
+  },
+};
+
+const sx = {
+  customSelect: {
+    sxSelect: {
+      ".MuiOutlinedInput-notchedOutline": {
+        borderColor: "none",
+      },
+    },
+  },
+};
